@@ -8,11 +8,7 @@ class principalController extends CI_Controller {
 		$this->load->model('modelsP');
 	}
 
-	public function login(){ //Carga la vista inicial	
-		$this->load->view('vLogin');
-	}
-	public function index()
-	{
+	public function index(){ //Carga la vista inicial	
 		$this->load->view('vLogin');
 	}
 }
