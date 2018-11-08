@@ -11,4 +11,8 @@ class principalController extends CI_Controller {
 	public function login(){ //Carga la vista inicial	
 		$this->load->view('vLogin');
 	}
+	public function index()
+	{
+		$this->load->view('vLogin');
+	}
 }
