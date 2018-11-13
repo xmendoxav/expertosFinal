@@ -27,10 +27,10 @@
         <div class="container">
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#event">Evento</a>
-            <a href="#menu-list">Menú</a>
-			<a href="#about">Conocenos</a>
-            <a href="#contact">Registrarse</a>
+            <a href="#about">About</a>
+            <a href="#event">Event</a>
+            <a href="#menu-list">Menu</a>
+            <a href="#contact">Book a table</a>
           </div>
           <!-- Use any element to open the sidenav -->
           <span onclick="openNav()" class="pull-right menu-icon">☰</span>
@@ -41,7 +41,7 @@
           <div class="inner text-center">
             <h1 class="logo-name">AutoBar</h1>
             <h2>Servicio Automatizado de Comida.</h2>
-            <p>¡Bienvenido!</p>
+            <p>:D</p>
           </div>
         </div>
       </div>
@@ -53,21 +53,22 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center marb-35">
-          <h1 class="header-h">¿Que somos?</h1>
-          <p class="header-p">Somos una organización diferente en los servicios de comida rápida, con una propuesta de trabajo innovadora. </p>
+          <h1 class="header-h">Delicious Journey</h1>
+          <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+            <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-10">
           <div class="col-md-6 col-sm-6">
             <div class="about-info">
-              <h2 class="heading">¿Como lo hacemos?</h2>
-              <p>A través de un sistema inteligente de servicio de comida automatzado, brindandole al usuario la mejor experiencia en el mercado!</p>
+              <h2 class="heading">vel illum qui dolorem eum</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero impedit inventore culpa vero accusamus in nostrum dignissimos modi, molestiae. Autem iusto esse necessitatibus ex corporis earum quaerat voluptates quibusdam dicta!</p>
               <div class="details-list">
                 <ul>
-                  <li><i class="fa fa-check"></i>Experiencia personalizada.</li>
-                  <li><i class="fa fa-check"></i>Efciencia en el servicio.</li>
-                  <li><i class="fa fa-check"></i>Sin interacción con humanos.</li>
-                  <li><i class="fa fa-check"></i>Amigable, sencillo y intuitivo.</li>
+                  <li><i class="fa fa-check"></i>Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                  <li><i class="fa fa-check"></i>Quisque finibus eu lorem quis elementum</li>
+                  <li><i class="fa fa-check"></i>Vivamus accumsan porttitor justo sed </li>
+                  <li><i class="fa fa-check"></i>Curabitur at massa id tortor fermentum luctus</li>
                 </ul>
               </div>
             </div>
@@ -82,6 +83,39 @@
   </section>
   <!--/about-->
   <!-- event -->
+  <section id="event">
+    <div class="bg-color" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 text-center" style="padding:60px;">
+            <h1 class="header-h">Up Coming events</h1>
+            <p class="header-p">Decorations 100% complete here</p>
+          </div>
+          <div class="col-md-12" style="padding-bottom:60px;">
+            <div class="item active left">
+              <div class="col-md-6 col-sm-6 left-images">
+                <img src="img/res02.jpg" class="img-responsive">
+              </div>
+              <div class="col-md-6 col-sm-6 details-text">
+                <div class="content-holder">
+                  <h2>Joyful party</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore eos suscipit earum voluptas aliquam recusandae, quae iure adipisci, inventore quia, quos delectus quaerat praesentium id expedita nihil illo accusantium, tempora.</p>
+                  <address>
+                              <strong>Place: </strong>
+                              1612 Collins Str, Victoria 8007
+                              <br>
+                              <strong>Time: </strong>
+                              07:30pm
+                            </address>
+                  <a class="btn btn-imfo btn-read-more" href="events-details.html">Read more</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <!--/ event -->
   <!-- menu -->
   <section id="menu-list" class="section-padding">
@@ -89,15 +123,16 @@
       <div class="row">
         <div class="col-md-12 text-center marb-35">
           <h1 class="header-h">Nuestro Menú</h1>
-          <p class="header-p">La mejor calidad en alimentos, organizada para tú comodidad. </p>
+          <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+            <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
         </div>
 
         <div class="col-md-12  text-center" id="menu-flters">
           <ul>
-            <li><a class="filter active" data-filter=".menu-restaurant">Todo</a></li>
-            <li><a class="filter" data-filter=".breakfast">Desayuno</a></li>
-            <li><a class="filter" data-filter=".lunch">Comida</a></li>
-            <li><a class="filter" data-filter=".dinner">Cena</a></li>
+            <li><a class="filter active" data-filter=".menu-restaurant">Show All</a></li>
+            <li><a class="filter" data-filter=".breakfast">Breakfast</a></li>
+            <li><a class="filter" data-filter=".lunch">Lunch</a></li>
+            <li><a class="filter" data-filter=".dinner">Dinner</a></li>
           </ul>
         </div>
 
@@ -221,8 +256,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="header-h">¿Tú primera vez con nosotros?</h1>
-          <p class="header-p">Suscribete para un servicio personalizado. </p>
+          <h1 class="header-h">Book Your table</h1>
+          <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+            <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
         </div>
       </div>
       <div class="row msg-row">
@@ -255,7 +291,7 @@
             <div id="errormessage"></div>
             <div class="col-md-6 col-sm-6 contact-form pad-form">
               <div class="form-group label-floating is-empty">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                 <div class="validation"></div>
               </div>
 
@@ -268,7 +304,7 @@
             </div>
             <div class="col-md-6 col-sm-6 contact-form pad-form">
               <div class="form-group">
-                <input type="email" class="form-control label-floating is-empty" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" />
+                <input type="email" class="form-control label-floating is-empty" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                 <div class="validation"></div>
               </div>
             </div>
@@ -280,13 +316,26 @@
             </div>
             <div class="col-md-6 col-sm-6 contact-form">
               <div class="form-group">
-                <input type="text" class="form-control label-floating is-empty" name="age" id="age" placeholder="Edad" data-rule="required" data-msg="This field is required" />
+                <input type="text" class="form-control label-floating is-empty" name="phone" id="phone" placeholder="Phone" data-rule="required" data-msg="This field is required" />
                 <div class="validation"></div>
               </div>
             </div>
+            <div class="col-md-6 col-sm-6 contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control label-floating is-empty" name="people" id="people" placeholder="People" data-rule="required" data-msg="This field is required" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-12 contact-form">
+              <div class="form-group label-floating is-empty">
+                <textarea class="form-control" name="message" rows="5" rows="3" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validation"></div>
+              </div>
+
+            </div>
             <div class="col-md-12 btnpad">
               <div class="contacts-btn-pad">
-                <button class="contacts-btn">Registrarse.</button>
+                <button class="contacts-btn">Book Table</button>
               </div>
             </div>
           </form>
