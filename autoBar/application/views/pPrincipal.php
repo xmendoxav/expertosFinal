@@ -1,15 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write(unescape('%3Cscript src="/js_folder/jquery-1.6.1.min.js"%3E%3C/script%3E'))</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Delicious</title>
+  <title>AutoBar</title>
   <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -17,7 +11,6 @@
   <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-	
   <!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
@@ -46,9 +39,9 @@
       <div class="container">
         <div class="row">
           <div class="inner text-center">
-            <h1 class="logo-name">Delicious</h1>
-            <h2>Food To fit your lifestyle & health.</h2>
-            <p>Specialized in Indian Cuisine!!</p>
+            <h1 class="logo-name">AutoBar</h1>
+            <h2>Servicio Automatizado de Comida.</h2>
+            <p>:D</p>
           </div>
         </div>
       </div>
@@ -129,7 +122,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center marb-35">
-          <h1 class="header-h">Menu List</h1>
+          <h1 class="header-h">Nuestro Menú</h1>
           <p class="header-p">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
             <br>nibh euismod tincidunt ut laoreet dolore magna aliquam. </p>
         </div>
@@ -381,10 +374,11 @@
     </div>
   </footer>
   <!-- / footer -->
-  <script src="application/views/Delicious/js/jquery.easing.min.js"></script>
-  <script src="application/views/Delicious/js/bootstrap.min.js"></script>
-  <script src="application/views/Delicious/js/custom.js"></script>
-  <script src="application/views/Delicious/contactform/contactform.js"></script>
+  <script src="/expertosFinal/Delicious/js/jquery.min.js"></script>
+  <script src="/expertosFinal/Delicious/js/jquery.easing.min.js"></script>
+  <script src="/expertosFinal/Delicious/js/bootstrap.min.js"></script>
+  <script src="/expertosFinal/Delicious/js/custom.js"></script>
+  <script src="/expertosFinal/Delicious/contactform/contactform.js"></script>
 
 </body>
 
