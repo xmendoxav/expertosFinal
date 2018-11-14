@@ -28,9 +28,9 @@
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="#event">Evento</a>
-            <a href="#menu-list">Menú</a>
-			<a href="#about">Conocenos</a>
             <a href="#contact">Registrarse</a>
+            <a href="#about">Conocenos</a>
+            <a href="#menu-list">Menú</a>
           </div>
           <!-- Use any element to open the sidenav -->
           <span onclick="openNav()" class="pull-right menu-icon">☰</span>
@@ -38,22 +38,115 @@
       </header>
       <div class="container">
         <div class="row">
-          <div class="inner text-center">
+          <div class="col-sm-6">
             <h1 class="logo-name">AutoBar</h1>
             <h2>Servicio Automatizado de Comida.</h2>
-            <p>¡Bienvenido!</p>
+          </div>
+          <div class="col-sm-2">
+            <h2>¡Bienvenido!</h2>
+          </div>
+          <div class="col-md-6 col-sm-2" style="margin-top: 35px; margin-bottom: 35px;">
+            <input type="text" class="form-control label-floating is-empty" name="nameLogin" id="nameLogin" placeholder="Nombre" data-rule="required" data-msg="Campo requerido" />
+          </div>
+          <div class="col-md-6 col-sm-2" style="margin-bottom: 50px;">
+            <input type="password" class="form-control label-floating is-empty" name="psw" id="psw" placeholder="Contraseña" data-rule="required" data-msg="Campo requerido" />
+          </div>
+          <div class="col-md-6 col-sm-2">
+            <button class="contacts-btn">Ingresar</button>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   <!-- / banner -->
+
+  <!-- contact -->
+  <section id="contact" class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="header-h">¿Tu primera vez con nosotros?</h1>
+          <p class="header-p">Suscribete para un servicio personalizado. </p>
+        </div>
+      </div>
+      <div class="row msg-row">
+        <div class="col-md-4 col-sm-4 mr-15">
+          <div class="media-2">
+            <div class="media-left">
+              <div class="contact-phone bg-1 text-center"><span class="phone-in-talk fa fa-phone"></span></div>
+            </div>
+            <div class="media-body">
+              <h4 class="dark-blue regular">Dudas y/o aclaraciones</h4>
+              <p class="light-blue regular alt-p">+55 7223831793 - <span class="contacts-sp">Servicio a domicilio</span></p>
+            </div>
+          </div>
+          <div class="media-2">
+            <div class="media-left">
+              <div class="contact-email bg-14 text-center"><span class="hour-icon fa fa-clock-o"></span></div>
+            </div>
+            <div class="media-body">
+              <h4 class="dark-blue regular">Horario</h4>
+              <p class="light-blue regular alt-p"> Lunes a Viernes 9:00 - 22:00</p>
+              <p class="light-blue regular alt-p">
+                Sabado & Domingo 10:00 - 20:00
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-sm-8">
+          <form action="" method="post" role="form" class="contactForm">
+            <div id="sendmessage">Your booking request has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <div class="col-md-6 col-sm-6 contact-form pad-form">
+              <div class="form-group label-floating is-empty">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:3" data-msg="Por favor ingresa tú nombre" />
+                <div class="validation"></div>
+              </div>
+
+            </div>
+            <div class="col-md-6 col-sm-6 contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control label-floating is-empty" name="apellidos" id="apellidos" placeholder="Apellidos" data-rule="required" data-msg="Por favor ingresa tus apellidos" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 contact-form pad-form">
+              <div class="form-group">
+                <input type="email" class="form-control label-floating is-empty" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor ingresa un email valido" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 contact-form">
+              <div class="form-group">
+                <input type="number" class="form-control label-floating is-empty" name="age" id="age" placeholder="Edad" data-rule="required" data-msg="Por favor ingresa tu edad" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 contact-form">
+              <div class="form-group">
+                <input type="text" class="form-control label-floating is-empty" name="sexo" id="sexo" placeholder="Sexo" data-rule="required" data-msg="Por favor ingresa tu sexo" />
+                <div class="validation"></div>
+              </div>
+            </div>
+            <div class="col-md-12 btnpad">
+              <div class="contacts-btn-pad">
+                <button class="contacts-btn">Registrarse.</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- / contact -->
+
   <!--about-->
   <section id="about" class="section-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center marb-35">
-          <h1 class="header-h">¿Que somos?</h1>
+          <h1 class="header-h">¿Quienes somos?</h1>
           <p class="header-p">Somos una organización diferente en los servicios de comida rápida, con una propuesta de trabajo innovadora. </p>
         </div>
         <div class="col-md-1"></div>
@@ -216,99 +309,21 @@
     </div>
   </section>
   <!--/ menu -->
-  <!-- contact -->
-  <section id="contact" class="section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <h1 class="header-h">¿Tú primera vez con nosotros?</h1>
-          <p class="header-p">Suscribete para un servicio personalizado. </p>
-        </div>
-      </div>
-      <div class="row msg-row">
-        <div class="col-md-4 col-sm-4 mr-15">
-          <div class="media-2">
-            <div class="media-left">
-              <div class="contact-phone bg-1 text-center"><span class="phone-in-talk fa fa-phone"></span></div>
-            </div>
-            <div class="media-body">
-              <h4 class="dark-blue regular">Phone Numbers</h4>
-              <p class="light-blue regular alt-p">+440 875369208 - <span class="contacts-sp">Phone Booking</span></p>
-            </div>
-          </div>
-          <div class="media-2">
-            <div class="media-left">
-              <div class="contact-email bg-14 text-center"><span class="hour-icon fa fa-clock-o"></span></div>
-            </div>
-            <div class="media-body">
-              <h4 class="dark-blue regular">Opening Hours</h4>
-              <p class="light-blue regular alt-p"> Monday to Friday 09.00 - 24:00</p>
-              <p class="light-blue regular alt-p">
-                Friday and Sunday 08:00 - 03.00
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-8 col-sm-8">
-          <form action="" method="post" role="form" class="contactForm">
-            <div id="sendmessage">Your booking request has been sent. Thank you!</div>
-            <div id="errormessage"></div>
-            <div class="col-md-6 col-sm-6 contact-form pad-form">
-              <div class="form-group label-floating is-empty">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                <div class="validation"></div>
-              </div>
-
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <input type="date" class="form-control label-floating is-empty" name="date" id="date" placeholder="Date" data-rule="required" data-msg="This field is required" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form pad-form">
-              <div class="form-group">
-                <input type="email" class="form-control label-floating is-empty" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <input type="time" class="form-control label-floating is-empty" name="time" id="time" placeholder="Time" data-rule="required" data-msg="This field is required" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control label-floating is-empty" name="age" id="age" placeholder="Edad" data-rule="required" data-msg="This field is required" />
-                <div class="validation"></div>
-              </div>
-            </div>
-            <div class="col-md-12 btnpad">
-              <div class="contacts-btn-pad">
-                <button class="contacts-btn">Registrarse.</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- / contact -->
+  
   <!-- footer -->
   <footer class="footer text-center">
     <div class="footer-top">
       <div class="row">
         <div class="col-md-offset-3 col-md-6 text-center">
           <div class="widget">
-            <h4 class="widget-title">Delicious</h4>
-            <address>324 Ellte Road<br>Delhi, DL 110013</address>
+            <h4 class="widget-title">AutoBar</h4>
+            <address>Cerro de Coatepec<br>S/N</address>
             <div class="social-list">
               <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
               <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             </div>
             <p class="copyright clear-float">
-              © Delicious Theme. All Rights Reserved
+              © AutoBar S.A de C.V. Todos los derechos 
               <div class="credits">
                 <!--
                   All the links in the footer should remain intact.
@@ -316,7 +331,7 @@
                   Licensing information: https://bootstrapmade.com/license/
                   Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Delicious
                 -->
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                Diseñado con <a href="https://bootstrapmade.com/">BootstrapMade</a>
               </div>
             </p>
           </div>
