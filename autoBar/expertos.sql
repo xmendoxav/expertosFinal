@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 20, 2018 at 04:37 PM
+-- Generation Time: Nov 20, 2018 at 04:42 PM
 -- Server version: 10.1.36-MariaDB
 -- PHP Version: 7.2.11
 
@@ -21,6 +21,35 @@ SET time_zone = "+00:00";
 --
 -- Database: `expertos`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `consumo`
+--
+
+CREATE TABLE `consumo` (
+  `id_usuario` int(11) NOT NULL,
+  `id_ menu` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
+  `consumo_total` int(11) NOT NULL,
+  `valoracion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `menu`
+--
+
+CREATE TABLE `menu` (
+  `id` int(11) NOT NULL,
+  `tipo_comida` varchar(5) NOT NULL,
+  `descripcion` int(11) NOT NULL,
+  `nombre` int(11) NOT NULL,
+  `precio` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -51,6 +80,19 @@ INSERT INTO `usuario` (`id`, `psw`, `nombre`, `apellidos`, `luga_nacimiento`, `e
 --
 
 --
+-- Indexes for table `consumo`
+--
+ALTER TABLE `consumo`
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_ menu` (`id_ menu`);
+
+--
+-- Indexes for table `menu`
+--
+ALTER TABLE `menu`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
@@ -61,10 +103,27 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT for table `menu`
+--
+ALTER TABLE `menu`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `consumo`
+--
+ALTER TABLE `consumo`
+  ADD CONSTRAINT `consumo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`),
+  ADD CONSTRAINT `consumo_ibfk_2` FOREIGN KEY (`id_ menu`) REFERENCES `menu` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
