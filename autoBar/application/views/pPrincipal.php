@@ -42,17 +42,21 @@
             <h1 class="logo-name">AutoBar</h1>
             <h2>Servicio Automatizado de Comida.</h2>
           </div>
+          <form class="" action="<?php echo base_url(); ?>index.php\Welcome\ingresar" method="post">
+
           <div class="col-sm-2">
             <h2>¡Bienvenido!</h2>
           </div>
           <div class="col-md-6 col-sm-2" style="margin-top: 35px; margin-bottom: 35px;">
-            <input type="text" class="form-control label-floating is-empty" name="nameLogin" id="nameLogin" placeholder="Nombre" data-rule="required" data-msg="Campo requerido" />
+            <input type="text" class="form-control label-floating is-empty" name="nombre" id="nombre" placeholder="Nombre" data-rule="required" data-msg="Campo requerido" />
           </div>
           <div class="col-md-6 col-sm-2" style="margin-bottom: 50px;">
             <input type="password" class="form-control label-floating is-empty" name="psw" id="psw" placeholder="Contraseña" data-rule="required" data-msg="Campo requerido" />
           </div>
           <div class="col-md-6 col-sm-2">
-            <button class="contacts-btn">Ingresar</button>
+            <input type="submit" class="contacts-btn" name="ingresar" value="Entrar">
+          </form>
+
           </div>
         </div>
       </div>
@@ -309,7 +313,7 @@
     </div>
   </section>
   <!--/ menu -->
-  
+
   <!-- footer -->
   <footer class="footer text-center">
     <div class="footer-top">
@@ -323,7 +327,7 @@
               <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
             </div>
             <p class="copyright clear-float">
-              © AutoBar S.A de C.V. Todos los derechos 
+              © AutoBar S.A de C.V. Todos los derechos
               <div class="credits">
                 <!--
                   All the links in the footer should remain intact.
@@ -349,3 +353,16 @@
 </body>
 
 </html>
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+   $("#menu-list").hide();
+ });
+ function ingresa(){
+   document.getElementById('id').value;
+   document.getElementById('id').value;
+
+ }
+
+</script>
