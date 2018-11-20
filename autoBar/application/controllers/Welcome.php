@@ -17,7 +17,15 @@ class Welcome extends CI_Controller {
 
 	public function registrarUsr(){
 		$name = $this->input->post('name');
-		echo "Se leyó; ".$name;
+		$apellidos = $this->input->post('apellidos');
+		$email = $this->input->post('email');
+		$age = $this->input->post('age');
+		$sexo = $this->input->post('sexo');
+		$psw = $this->input->post('psw');
+
+		$insertarUsr = $this->modelsP->insertaUsr($name, $apellidos, $email, $age, $sexo, $psw);
+
+		
 	}
 
 
