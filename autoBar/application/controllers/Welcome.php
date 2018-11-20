@@ -14,8 +14,23 @@ class Welcome extends CI_Controller {
 
 
 	public function index(){
-		$this->load->view('pPrincipal.php');
+		$this->load->view('VPrincipal.php');
 	}
+
+	public function registrarUsr(){
+		$name = $this->input->post('name');
+		$apellidos = $this->input->post('apellidos');
+		$email = $this->input->post('email');
+		$age = $this->input->post('age');
+		$sexo = $this->input->post('sexo');
+		$psw = $this->input->post('psw');
+
+		$insertarUsr = $this->modelsP->insertaUsr($name, $apellidos, $email, $age, $sexo, $psw);
+
+		
+	}
+
+
 	public function ingresar(){
 		$nombre = $this->input->post('nombre');
 		$psw = $this->input->post('psw');
