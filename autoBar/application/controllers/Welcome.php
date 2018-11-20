@@ -6,6 +6,8 @@ class Welcome extends CI_Controller {
 		parent:: __construct();
 		$this->load->model('modelsP');
 		$this->load->helper('url');
+		$this->load->helper('url_helper');
+		$this->load->helper('form');
 		$this->load->library('session');
 		$this->load->library('form_validation');
 	}
@@ -21,24 +23,22 @@ class Welcome extends CI_Controller {
 		//var_dump($buscaUsr);
 		if ($buscaUsr) {
 			$dataSession = array(
-	                	'tipo' => $existe['tipo'],
-										'tipoId' => $existe['tipoUsuario'],
-										'id'=> $existe['idusr'],
-	                	'nombre' => $existe['nombre']." ".$existe['apellidoP']." ".$existe['apellidoM'],
+										'psw' => $buscaUsr['psw'],
+										'id'=> $buscaUsr['id'],
+	                	'nombre' => $buscaUsr['nombre']." ".$buscaUsr['apellidos'],
 	                	'user_logged' => true
 	            	);
 			$this->session->set_userdata($dataSession);
-
+			$this->load->view('menu');
 			//2 esta referido al administrador y 1 para el vendedor
-			if ($existe['tipoUsuario'] == 2) {
-				return $this->cargaInicio();
-			}elseif ($existe['tipoUsuario'] == 1) {
+		//	if ($existe['tipoUsuario'] == 2) {
+				//return $this->cargaInicio();
+			//}elseif ($existe['tipoUsuario'] == 1) {
 				// code...
-			}
 
-		}else {
+	}else {
 			$this->session->set_flashdata("error", "El Nombre de usuario o contraseña es incorrecto");
-			$this->load->view('login');
+			redirect(base_url(), "refresh");
 		}
 
 

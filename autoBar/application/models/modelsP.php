@@ -4,7 +4,7 @@
     $this->load->database();
   }
 	public function buscausr($nombre, $psw){
-		$query = "Select * from usuarios where nombre = '".$nombre."' and psw = '".$psw."';";
+		$query = "Select * from usuario where nombre = '".$nombre."' and psw = '".$psw."';";
 		$resultado = $this->db->query($query);
 		return $resultado->row_array();
 	}
