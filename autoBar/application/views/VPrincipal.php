@@ -95,7 +95,8 @@
           </div>
         </div>
         <div class="col-md-8 col-sm-8">
-          <form action="" method="post" role="form" class="contactForm">
+
+          <form action="registrarUsr" method="post">
             <div id="sendmessage">Your booking request has been sent. Thank you!</div>
             <div id="errormessage"></div>
             <div class="col-md-6 col-sm-6 contact-form pad-form">
@@ -103,7 +104,6 @@
                 <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:3" data-msg="Por favor ingresa tú nombre" />
                 <div class="validation"></div>
               </div>
-
             </div>
             <div class="col-md-6 col-sm-6 contact-form">
               <div class="form-group">
@@ -131,7 +131,8 @@
             </div>
             <div class="col-md-12 btnpad">
               <div class="contacts-btn-pad">
-                <button class="contacts-btn">Registrarse.</button>
+                <input class="contacts-btn" type="submit" value="Registrarse">
+                <input style="margin-left: 190px;" class="contacts-btn" type="reset" value="Borrar">
               </div>
             </div>
           </form>
