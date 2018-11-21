@@ -26,11 +26,36 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center marb-35">
-          <h1 class="header-h">Nuestras recomendaciones para ti</h1>
-          <p class="header-p">Nuestra seleccion para ti</p>
+          <h1 class="header-h">Nuestras recomendaciones de comidas para ti <?php echo $this->session->userdata('nombre'); ?></h1>
+          <p class="header-p">Nuestra seleccion por precio para ti</p>
         </div>
-
       </div>
+      <div class="row">
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol id="numeroOpciones"class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        </ol>
+  <!-- Wrapper for slides -->
+        <div id= "imagenes"class="carousel-inner">
+          <div class="item active">
+            <img src="https://mxcity.mx/wp-content/uploads/2016/10/platillos-tipicamente-mexicanos.jpg" alt="Los Angeles">
+          </div>
+
+        </div>
+  <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="fa fa-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="fa fa-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
       <div class="row">
         <div class="col-md-12 text-center marb-35">
           <h1 class="header-h">Nuestro Menú</h1>
@@ -247,5 +272,6 @@ $(document).ready(function(){
    document.getElementById('id').value;
 
  }
+
 
 </script>
