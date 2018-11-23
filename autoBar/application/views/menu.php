@@ -265,13 +265,22 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
+  var datos;
+
+  $.ajax({
+    url:"<?php echo base_url(); ?>index.php/Welcome/obtenInfo",
+    type: "POST",
+    data:{datos:datos},
+    succes:function(respuesta){
+      console.log("respuesta");
+
+    },error:function(error){
+      console.log(error);
+
+    }
+  });
 
  });
- function ingresa(){
-   document.getElementById('id').value;
-   document.getElementById('id').value;
-
- }
 
 
 </script>

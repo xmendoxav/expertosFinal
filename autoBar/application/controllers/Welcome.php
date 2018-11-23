@@ -27,7 +27,7 @@ class Welcome extends CI_Controller {
 
 		$insertarUsr = $this->modelsP->insertaUsr($name, $apellidos, $email, $age, $sexo, $psw);
 
-		
+
 	}
 
 
@@ -44,7 +44,7 @@ class Welcome extends CI_Controller {
 	                	'user_logged' => true
 	            	);
 			$this->session->set_userdata($dataSession);
-			$this->load->view('menu');
+			$this->obtenInfo();
 			//2 esta referido al administrador y 1 para el vendedor
 		//	if ($existe['tipoUsuario'] == 2) {
 				//return $this->cargaInicio();
@@ -56,6 +56,13 @@ class Welcome extends CI_Controller {
 			redirect(base_url(), "refresh");
 		}
 
+
+	}
+	public function obtenInfo(){
+		//Aqui haremos todos los analisis y se los enviaremos a la vista, y luego en la vista vemos como nos peleamos jejejejejeje
+		//El primer paso es verificar que tiene datos, en caso de que no tenga ningun dato guardado, enviaremos cadenas vacias a la vista que representaran que el usuario no ha ingresado ningun dato
+		$datoUsr = $this->modelsP->obtenInfo($this->session->userdata('id'));
+		var_dump($datoUsr);
 
 	}
 }

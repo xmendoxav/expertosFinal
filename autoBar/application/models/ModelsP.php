@@ -15,5 +15,10 @@
 		$resultado = $this->db->query($query);
 		return $resultado->row_array();
 	}
+	public function obtenInfo($nombre){
+		$query = "Select * from consumo where id_usuario = '".$nombre."'";
+		$resultado = $this->db->query($query);
+		return $resultado->result_array();
+	}
 	}
 ?>
