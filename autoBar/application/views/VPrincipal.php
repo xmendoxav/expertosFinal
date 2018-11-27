@@ -27,7 +27,7 @@
         <div class="container">
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#event">Evento</a>
+            <a href="#event">Otra Opcion</a>
             <a href="#contact">Registrarse</a>
             <a href="#about">Conocenos</a>
             <a href="#menu-list">Menú</a>
@@ -80,7 +80,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="header-h">Tu primera vez con nosotros?</h1>
+          <h1 class="header-h">¿Tu primera vez con nosotros?</h1>
           <p class="header-p">Suscribete para un servicio personalizado. </p>
         </div>
       </div>
@@ -113,6 +113,7 @@
           <form action="<?php echo base_url(); ?>index.php\Welcome\registrarUsr" method="post">
             <div id="sendmessage">Your booking request has been sent. Thank you!</div>
             <div id="errormessage"></div>
+
             <div class="col-md-6 col-sm-6 contact-form pad-form">
               <div class="form-group label-floating is-empty">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:3" data-msg="Por favor ingresa tú nombre" />
@@ -125,6 +126,7 @@
                 <div class="validation"></div>
               </div>
             </div>
+
             <div class="col-md-6 col-sm-6 contact-form pad-form">
               <div class="form-group">
                 <input type="email" class="form-control label-floating is-empty" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor ingresa un email valido" />
@@ -137,18 +139,36 @@
                 <div class="validation"></div>
               </div>
             </div>
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <input type="text" class="form-control label-floating is-empty" name="sexo" id="sexo" placeholder="Sexo" data-rule="required" data-msg="Por favor ingresa tu sexo" />
+          </div>
+
+
+          <div col-md-8 col-sm-8>
+            <div class="col-md-6 col-sm-6 contact-form pad-form">
+             <div class="form-group">
+                <input type="text" class="form-control label-floating is-empty" name="l_nac" id="l_nac" placeholder="Lugar de Nacimiento" data-rule="required" data-msg="Por favor ingresa tu edad" />
                 <div class="validation"></div>
               </div>
             </div>
+            
             <div class="col-md-6 col-sm-6 contact-form">
               <div class="form-group">
-                <input type="password" class="form-control label-floating is-empty" name="psw" id="psw" placeholder="Contraseña [Máximo 8 cáracteres]" data-rule="required" data-msg="Por favor ingresa tu Contraseña" />
+                <input type="password" class="form-control label-floating is-empty" name="psw" id="psw" placeholder="Contraseña" data-rule="required" data-msg="Por favor ingresa tu Contraseña" />
                 <div class="validation"></div>
               </div>
             </div>
+          </div>
+
+            <div class="col-md-6 col-sm-6 contact-form">
+              <div class="form-group">
+                <select name="sexo">
+                  <option selected>Sexo ... </option>
+                  <option value="F">Femenino</option>
+                  <option value="M">Masculino</option>
+                </select>
+                <div class="validation"></div>
+              </div>
+            </div>
+
             <div class="col-md-12 btnpad">
               <div class="contacts-btn-pad">
                 <input class="contacts-btn" type="submit" value="Registrarse">
