@@ -45,7 +45,7 @@
 
           <form class="" action="<?php echo base_url(); ?>index.php\Welcome\ingresar" method="post">
           <div class="col-sm-2">
-            <h2>¡Bienvenido!</h2>
+            <h2>Bienvenido</h2>
           </div>
           <div class="col-md-6 col-sm-2" style="margin-top: 35px; margin-bottom: 35px;">
             <input type="text" class="form-control label-floating is-empty" name="nombre" id="nombre" placeholder="Nombre" data-rule="required" data-msg="Campo requerido" />
@@ -80,7 +80,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <h1 class="header-h">¿Tu primera vez con nosotros?</h1>
+          <h1 class="header-h">Tu primera vez con nosotros?</h1>
           <p class="header-p">Suscribete para un servicio personalizado. </p>
         </div>
       </div>

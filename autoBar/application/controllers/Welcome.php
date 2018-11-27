@@ -61,8 +61,34 @@ class Welcome extends CI_Controller {
 	public function obtenInfo(){
 		//Aqui haremos todos los analisis y se los enviaremos a la vista, y luego en la vista vemos como nos peleamos jejejejejeje
 		//El primer paso es verificar que tiene datos, en caso de que no tenga ningun dato guardado, enviaremos cadenas vacias a la vista que representaran que el usuario no ha ingresado ningun dato
-		$datoUsr = $this->modelsP->obtenInfo($this->session->userdata('id'));
-		var_dump($datoUsr);
+		$datos["consumos"] = $this->modelsP->obtenInfo($this->session->userdata('id'));
+		if ($datos["consumos"] == NULL){
+			$datos["desayunos"] = $this->modelsP->buscaPlatillos("D");
+			$datos["comidas"] = $this->modelsP->buscaPlatillos("C");
+			$datos["cenas"] = $this->modelsP->buscaPlatillos("CE");
+			$datos["bebidas"] = $this->modelsP->buscaPlatillos("B");
+			//var_dump(count($datos));
+			//die();
+			$this->load->view('menu', $datos);
+		}else {
+
+			/*aqui tenenmos diferentes variables de entradada para el modelo, para desayuno
+			basta con poner:
+			DESAYUNO = "D"
+			COMIDA = "C"
+			CENA = "CE"
+			*/
+			$datos["desayunos"] = $this->modelsP->buscaPlatillos("D");
+			$datos["comidas"] = $this->modelsP->buscaPlatillos("C");
+			$datos["cenas"] = $this->modelsP->buscaPlatillos("CE");
+			$datos["bebidas"] = $this->modelsP->buscaPlatillos("B");
+			
+
+		}
+
+		//$datos["recomendaciones"] =
+		//var_dump($datos);
+
 
 	}
 }

@@ -20,5 +20,10 @@
 		$resultado = $this->db->query($query);
 		return $resultado->result_array();
 	}
+	public function buscaPlatillos($tipo){
+		$query = "SELECT * FROM menu WHERE tipo_comida = '".$tipo."'";
+		$resultado = $this->db->query($query);
+		return $resultado->result_array();
+	}
 	}
 ?>
