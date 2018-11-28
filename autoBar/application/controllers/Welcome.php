@@ -29,11 +29,8 @@ class Welcome extends CI_Controller {
 			$sexo = 2;
 		}
 		$l_nac = $this->input->post('l_nac');
-		$psw = $this->input->post('psw');
-
-		$insertarUsr = $this->modelsP->insertaUsr($name, $apellidos, $email, $age, $sexo, $psw, $l_nac);
-
-
+		$psw = $this->input->post('pswL');
+		$insertaUsr = $this->modelsP->insertaUsr($name, $apellidos, $email, $age, $sexo, $psw, $l_nac);
 	}
 
 

@@ -18,6 +18,27 @@
     Author URL: https://bootstrapmade.com
   ======================================================= -->
 </head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- SCRIPT para agregar un usuario allí mismo -->
+<script type="text/javascript">
+  function addUsr(){
+    var name = document.getElementById('name').value;
+    var apellidos = document.getElementById('apellidos').value;
+    var email = document.getElementById('email').value;
+    var age = document.getElementById('age').value;
+    var sexo = document.getElementById('sexo').value;
+    var pswL = document.getElementById('pswL').value;
+    var l_nac = document.getElementById('l_nac').value;
+    $.ajax({
+      url:"<?php echo base_url() ?>index.php/Welcome/registrarUsr",
+      type:"POST",
+      data:{name:name, apellidos:apellidos, email:email, age:age, sexo:sexo, pswL:pswL, l_nac:l_nac},
+      success: function(){
+        alert("¡Nuevo Usuario Registrado!\n\nBienvenido "+name+" "+apellidos+"\nYa puedes disfrutar de nuestros servicios");
+      }
+    });
+  }
+</script>
 
 <body>
   <!--banner-->
@@ -43,12 +64,12 @@
             <h2>Servicio Automatizado de Comida.</h2>
           </div>
 
-          <form class="" action="<?php echo base_url(); ?>index.php\Welcome\ingresar" method="post">
+          <form >
           <div class="col-sm-2">
             <h2>Bienvenido</h2>
           </div>
           <div class="col-md-6 col-sm-2" style="margin-top: 35px; margin-bottom: 35px;">
-            <input type="text" class="form-control label-floating is-empty" name="nombre" id="nombre" placeholder="Nombre" data-rule="required" data-msg="Campo requerido" />
+            <input type="text" class="form-control label-floating is-empty" id="nombre" placeholder="Nombre" data-rule="required" data-msg="Campo requerido" />
           </div>
           <div class="col-md-6 col-sm-2" style="margin-bottom: 50px;">
             <input type="password" class="form-control label-floating is-empty" name="psw" id="psw" placeholder="Contraseña" data-rule="required" data-msg="Campo requerido" />
@@ -108,70 +129,62 @@
             </div>
           </div>
         </div>
-        <div class="col-md-8 col-sm-8">
 
+        <div class="col-md-8 col-sm-8">
           <form action="<?php echo base_url(); ?>index.php\Welcome\registrarUsr" method="post">
             <div id="sendmessage">Your booking request has been sent. Thank you!</div>
             <div id="errormessage"></div>
-
             <div class="col-md-6 col-sm-6 contact-form pad-form">
               <div class="form-group label-floating is-empty">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:3" data-msg="Por favor ingresa tú nombre" />
-                <div class="validation"></div>
+                <input type="text" class="form-control" id="name" placeholder="Nombre" data-rule="minlen:3" required/>
+                <div></div>
               </div>
             </div>
             <div class="col-md-6 col-sm-6 contact-form">
               <div class="form-group">
-                <input type="text" class="form-control label-floating is-empty" name="apellidos" id="apellidos" placeholder="Apellidos" data-rule="required" data-msg="Por favor ingresa tus apellidos" />
+                <input type="text" class="form-control label-floating is-empty" name="apellidos" id="apellidos" placeholder="Apellidos" required/>
                 <div class="validation"></div>
               </div>
             </div>
-
             <div class="col-md-6 col-sm-6 contact-form pad-form">
               <div class="form-group">
-                <input type="email" class="form-control label-floating is-empty" name="email" id="email" placeholder="Email" data-rule="email" data-msg="Por favor ingresa un email valido" />
+                <input type="email" class="form-control label-floating is-empty" name="email" id="email" placeholder="Email" data-rule="email" required/>
                 <div class="validation"></div>
               </div>
             </div>
             <div class="col-md-6 col-sm-6 contact-form">
               <div class="form-group">
-                <input type="number" class="form-control label-floating is-empty" name="age" id="age" placeholder="Edad" data-rule="required" data-msg="Por favor ingresa tu edad" />
-                <div class="validation"></div>
+                <input type="number" class="form-control label-floating is-empty" name="age" id="age" placeholder="Edad" required/>
+                <div></div>
               </div>
             </div>
-          </div>
-
-
-          <div col-md-8 col-sm-8>
             <div class="col-md-6 col-sm-6 contact-form pad-form">
              <div class="form-group">
-                <input type="text" class="form-control label-floating is-empty" name="l_nac" id="l_nac" placeholder="Lugar de Nacimiento" data-rule="required" data-msg="Por favor ingresa tu edad" />
-                <div class="validation"></div>
+                <input type="text" class="form-control label-floating is-empty" name="l_nac" id="l_nac" placeholder="Lugar de Nacimiento" required" />
+                <div></div>
               </div>
             </div>
-            
             <div class="col-md-6 col-sm-6 contact-form">
               <div class="form-group">
-                <input type="password" class="form-control label-floating is-empty" name="psw" id="psw" placeholder="Contraseña" data-rule="required" data-msg="Por favor ingresa tu Contraseña" />
-                <div class="validation"></div>
-              </div>
-            </div>
-          </div>
-
-            <div class="col-md-6 col-sm-6 contact-form">
-              <div class="form-group">
-                <select name="sexo">
+                <select id="sexo" required>
                   <option selected>Sexo ... </option>
                   <option value="F">Femenino</option>
                   <option value="M">Masculino</option>
                 </select>
-                <div class="validation"></div>
+                <div></div>
               </div>
             </div>
+            <div class="col-md-6 col-sm-6 contact-form pad-form">
+              <div class="form-group">
+                <input type="password" class="form-control label-floating is-empty" id="pswL" placeholder="Contraseña" required/>
+                <div></div>
+              </div>
+            </div>
+          </div>
 
             <div class="col-md-12 btnpad">
               <div class="contacts-btn-pad">
-                <input class="contacts-btn" type="submit" value="Registrarse">
+                <input class="contacts-btn" type="button" value="Registrarse" onclick="addUsr()" >
                 <input style="margin-left: 190px;" class="contacts-btn" type="reset" value="Borrar">
               </div>
             </div>
@@ -381,11 +394,11 @@
     </div>
   </footer>
   <!-- / footer -->
-  <script src="vendor/js/jquery.min.js"></script>
-  <script src="vendor/js/jquery.easing.min.js"></script>
-  <script src="vendor/js/bootstrap.min.js"></script>
-  <script src="vendor/js/custom.js"></script>
-  <script src="vendor/contactform/contactform.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.easing.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="contactform/contactform.js"></script>
 
 </body>
 
@@ -399,7 +412,5 @@ $(document).ready(function(){
  function ingresa(){
    document.getElementById('id').value;
    document.getElementById('id').value;
-
  }
-
 </script>
