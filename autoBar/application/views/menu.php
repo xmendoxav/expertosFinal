@@ -8,9 +8,9 @@
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
-  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/vendor/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/vendor/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/vendor/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/css/style.css">
   <!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
@@ -18,16 +18,102 @@
     Author URL: https://bootstrapmade.com
   ======================================================= -->
 </head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+  function startTime(){
+    today=new Date();
+    h=today.getHours();
+    m=today.getMinutes();
+    s=today.getSeconds();
+    m=checkTime(m);
+    s=checkTime(s);
+    document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+    t=setTimeout('startTime()',500);
+  }
+
+  function checkTime(i){
+    if (i<10){
+      i="0" + i;
+    }
+    return i;
+  }
+
+  function traeComidaxHora(tComida){
+    alert("Entramos a traeComidaHora"+tComida);
+    $.ajax({
+      url:"<?php echo base_url() ?>index.php/Welcome/traeComidaxHora",
+      type:"POST",
+      data:{tComida:tComida},
+      succes: function(){
+        
+      }
+    });
+  }
+
+  function decideComidaHora(){
+    //Hora de atencion de 07:00 a 23:00
+    // 7 Se abre a las 7 
+    // 23 Se cierra a las 23;
+    // 11 El desayuno acaba a las 11:00
+    // 18 La comida acaba a las 18:00
+    // 23 LA cena acaba a las 23:00 (Hora del cierre)
+    alert(h+":"+m+":"+s);
+    if((h>=7) && (h<=11)){
+      //Hora del desayuno
+      var tComida = 'D';
+      alert("Hora del desayuno");
+    }else if((h>=11)&&(h<=18)){
+      //Hora de la comida
+      var tComida = 'C';
+      alert("Hora de la comida");
+      traeComidaxHora(tComida);
+    }else if((h>=18)&&(h<=23)){
+      //Hora de la cena
+      var tComida = 'CE';
+      alert("Hora de la cena");
+    }
+  }
+
+  window.onload=function(){
+    startTime();
+    decideComidaHora();
+  }
+</script>
+
+<style type="text/css">
+  #columnas{
+   column-count:3;
+   column-gap:10px;
+   column-rule:5px Outset gray;
+}
+</style>
 
 <body>
-  <!--banner-->
+  <!-- ESTA ES LA SECCION DE RECOMENDACION POR LA HORA DEL DÍA-->
+  <section id="xHour">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="header-h">¿Qué hora es?</h1>
+          <div id="reloj" style="font-size:20px;"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="columnas">
+          <li>Ataúlfo</li>
+          <li>Sigerico</li>
+          <li>Walia</li>
+        </div>
+      </div>
+  </section>
+  <!--AQUI ACABA LA SECCION DE RECOMENDACION POR LA HORA DEL DÍA-->
 
   <section id="menu-list" class="section-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center marb-35">
           <h1 class="header-h">Nuestras recomendaciones de comidas para ti <?php echo $this->session->userdata('nombre'); ?></h1>
-          <p class="header-p">Nuestra seleccion por precio para ti</p>
+          <p class="header-p">Lo más valorado</p>
         </div>
       </div>
       <?php if ($consumos != NULL){ ?>
@@ -192,11 +278,11 @@
     </div>
   </footer>
   <!-- / footer -->
-  <script src="/expertosFinal/autoBar/vendor/js/jquery.min.js"></script>
-  <script src="/expertosFinal/autoBar/vendor/js/jquery.easing.min.js"></script>
-  <script src="/expertosFinal/autoBar/vendor/js/bootstrap.min.js"></script>
-  <script src="/expertosFinal/autoBar/vendor/js/custom.js"></script>
-  <script src="/expertosFinal/autoBar/vendor/contactform/contactform.js"></script>
+  <script src="/expertosFinal/autoBar/js/jquery.min.js"></script>
+  <script src="/expertosFinal/autoBar/js/jquery.easing.min.js"></script>
+  <script src="/expertosFinal/autoBar/js/bootstrap.min.js"></script>
+  <script src="/expertosFinal/autoBar/js/custom.js"></script>
+  <script src="/expertosFinal/autoBar/contactform/contactform.js"></script>
 
 </body>
 

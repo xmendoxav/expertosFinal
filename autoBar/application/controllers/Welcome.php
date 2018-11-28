@@ -23,11 +23,18 @@ class Welcome extends CI_Controller {
 		$email = $this->input->post('email');
 		$age = $this->input->post('age');
 		$sexo = $this->input->post('sexo');
-		$psw = $this->input->post('psw');
+		if($sexo == 'M') {
+			$sexo = 1;
+		}elseif($sexo == 'F'){
+			$sexo = 2;
+		}
+		$l_nac = $this->input->post('l_nac');
+		$psw = $this->input->post('pswL');
+		$insertaUsr = $this->modelsP->insertaUsr($name, $apellidos, $email, $age, $sexo, $psw, $l_nac);
+	}
 
-		$insertarUsr = $this->modelsP->insertaUsr($name, $apellidos, $email, $age, $sexo, $psw);
-
-
+	public function traeComidaxHora(){
+		$var = $this->input->post('tComida');
 	}
 
 
