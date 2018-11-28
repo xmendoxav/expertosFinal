@@ -18,16 +18,69 @@
     Author URL: https://bootstrapmade.com
   ======================================================= -->
 </head>
+<script type="text/javascript">
+  function startTime(){
+    today=new Date();
+    h=today.getHours();
+    m=today.getMinutes();
+    s=today.getSeconds();
+    m=checkTime(m);
+    s=checkTime(s);
+    document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+    t=setTimeout('startTime()',500);
+  }
+
+  function checkTime(i){
+    if (i<10){
+      i="0" + i;
+    }
+    return i;
+  }
+
+  function checaHora(){
+    alert(h+":"+m+":"+s);
+  }
+
+  window.onload=function(){
+    startTime();
+    checaHora();
+  }
+</script>
+
+<style type="text/css">
+  #columnas{
+   column-count:3;
+   column-gap:10px;
+   column-rule:5px Outset gray;
+}
+</style>
 
 <body>
-  <!--banner-->
+  <!-- ESTA ES LA SECCION DE RECOMENDACION POR LA HORA DEL DÍA-->
+  <section id="xHour">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h1 class="header-h">¿Qué hora es?</h1>
+          <div id="reloj" style="font-size:20px;"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="columnas">
+          <li>Ataúlfo</li>
+          <li>Sigerico</li>
+          <li>Walia</li>
+        </div>
+      </div>
+  </section>
+  <!--AQUI ACABA LA SECCION DE RECOMENDACION POR LA HORA DEL DÍA-->
 
   <section id="menu-list" class="section-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center marb-35">
           <h1 class="header-h">Nuestras recomendaciones de comidas para ti <?php echo $this->session->userdata('nombre'); ?></h1>
-          <p class="header-p">Nuestra seleccion por precio para ti</p>
+          <p class="header-p">Lo más valorado</p>
         </div>
       </div>
       <?php if ($consumos != NULL){ ?>

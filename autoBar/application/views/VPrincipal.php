@@ -48,7 +48,7 @@
         <div class="container">
           <div id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-            <a href="#event">Evento</a>
+            <a href="#event">Otra Opcion</a>
             <a href="#contact">Registrarse</a>
             <a href="#about">Conocenos</a>
             <a href="#menu-list">Menú</a>
@@ -63,13 +63,13 @@
             <h1 class="logo-name">AutoBar</h1>
             <h2>Servicio Automatizado de Comida.</h2>
           </div>
-          <form class="" action="<?php echo base_url(); ?>index.php\Welcome\ingresar" method="post">
 
+          <form >
           <div class="col-sm-2">
-            <h2>¡Bienvenido!</h2>
+            <h2>Bienvenido</h2>
           </div>
           <div class="col-md-6 col-sm-2" style="margin-top: 35px; margin-bottom: 35px;">
-            <input type="text" class="form-control label-floating is-empty" name="nombre" id="nombre" placeholder="Nombre" data-rule="required" data-msg="Campo requerido" />
+            <input type="text" class="form-control label-floating is-empty" id="nombre" placeholder="Nombre" data-rule="required" data-msg="Campo requerido" />
           </div>
           <div class="col-md-6 col-sm-2" style="margin-bottom: 50px;">
             <input type="password" class="form-control label-floating is-empty" name="psw" id="psw" placeholder="Contraseña" data-rule="required" data-msg="Campo requerido" />
@@ -78,14 +78,14 @@
             <input type="submit" class="contacts-btn" name="ingresar" value="Entrar">
           </form>
           <?php if (isset($_SESSION['success'])) { ?>
-            <div class="alert alert-success"> <?php echo $_SESSION['success']; ?></div>
-          <?php
-          } ?>
+		        <div class="alert alert-success"> <?php echo $_SESSION['success']; ?></div>
+			    <?php
+			    } ?>
 
-          <?php if (isset($_SESSION['error'])) { ?>
-              <div class="alert alert-danger echo $_SESSION['error']"> <?php echo $_SESSION['error']; ?></div>
-          <?php
-          } ?>
+			    <?php if (isset($_SESSION['error'])) { ?>
+			        <div class="alert alert-danger echo $_SESSION['error']"> <?php echo $_SESSION['error']; ?></div>
+			    <?php
+			    } ?>
 
 
           </div>
