@@ -18,68 +18,6 @@
     Author URL: https://bootstrapmade.com
   ======================================================= -->
 </head>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript">
-  function startTime(){
-    today=new Date();
-    h=today.getHours();
-    m=today.getMinutes();
-    s=today.getSeconds();
-    m=checkTime(m);
-    s=checkTime(s);
-    document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
-    t=setTimeout('startTime()',500);
-  }
-
-  function checkTime(i){
-    if (i<10){
-      i="0" + i;
-    }
-    return i;
-  }
-
-  function traeComidaxHora(tComida){
-    alert("Entramos a traeComidaHora"+tComida);
-    $.ajax({
-      url:"<?php echo base_url() ?>index.php/Welcome/traeComidaxHora",
-      type:"POST",
-      data:{tComida:tComida},
-      succes: function(){
-        
-      }
-    });
-  }
-
-  function decideComidaHora(){
-    //Hora de atencion de 07:00 a 23:00
-    // 7 Se abre a las 7 
-    // 23 Se cierra a las 23;
-    // 11 El desayuno acaba a las 11:00
-    // 18 La comida acaba a las 18:00
-    // 23 LA cena acaba a las 23:00 (Hora del cierre)
-    alert(h+":"+m+":"+s);
-    if((h>=7) && (h<=11)){
-      //Hora del desayuno
-      var tComida = 'D';
-      alert("Hora del desayuno");
-    }else if((h>=11)&&(h<=18)){
-      //Hora de la comida
-      var tComida = 'C';
-      alert("Hora de la comida");
-      traeComidaxHora(tComida);
-    }else if((h>=18)&&(h<=23)){
-      //Hora de la cena
-      var tComida = 'CE';
-      alert("Hora de la cena");
-    }
-  }
-
-  window.onload=function(){
-    startTime();
-    decideComidaHora();
-  }
-</script>
-
 <style type="text/css">
   #columnas{
    column-count:3;
@@ -118,7 +56,9 @@
       </div>
       <?php if ($consumos != NULL){ ?>
       <div class="row">
-
+        <!--aqui vamos a agregar los tipos de sugerencias por los diferentes tipos-->
+        <?php for ($i=0; $i <count($variableSugerenciasHora) ; $i++) { ?>
+          
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
           <ol id="numeroOpciones"class="carousel-indicators">
@@ -131,6 +71,7 @@
           </div>
 
         </div>
+      <?php }?>
   <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
           <span class="fa fa-chevron-left"></span>
@@ -141,7 +82,8 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-    </div><?php }else {?>
+    </div>
+  <?php }else {?>
       <div class="row">
         <div class="row">
           <div class="col-md-12 text-center marb-35">
@@ -316,4 +258,67 @@ $(document).ready(function(){
    alert(nombre)
    document.getElementById("infoPlatillo").innerHTML = nombre;
  }
+ function startTime(){
+    today=new Date();
+    h=today.getHours();
+    m=today.getMinutes();
+    s=today.getSeconds();
+    m=checkTime(m);
+    s=checkTime(s);
+    document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+    t=setTimeout('startTime()',500);
+  }
+
+  function checkTime(i){
+    if (i<10){
+      i="0" + i;
+    }
+    return i;
+  }
+
+  function traeComidaxHora(tComida){
+    alert("Entramos a traeComidaHora"+tComida);
+    var esta = tComida;
+    $.ajax({
+      url:"<?php echo base_url() ?>index.php/Welcome/traeComidaxHora",
+      type:"POST",
+      data:{esta:esta},
+      succes: function(respuesta){
+        console.log(respuesta);
+
+      },error:function(error){
+        console.log(error)
+      }
+    });
+  }
+
+  function decideComidaHora(){
+    //Hora de atencion de 07:00 a 23:00
+    // 7 Se abre a las 7 
+    // 23 Se cierra a las 23;
+    // 11 El desayuno acaba a las 11:00
+    // 18 La comida acaba a las 18:00
+    // 23 LA cena acaba a las 23:00 (Hora del cierre)
+    alert(h+":"+m+":"+s);
+    if((h>=7) && (h<=11)){
+      //Hora del desayuno
+      var tComida = 'D';
+      alert("Hora del desayuno");
+    }else if((h>=11)&&(h<=18)){
+      //Hora de la comida
+      var tComida = 'C';
+      alert("Hora de la comida");
+      traeComidaxHora(tComida);
+    }else if((h>=18)&&(h<=23)){
+      //Hora de la cena
+      var tComida = 'CE';
+      alert("Hora de la cena");
+    }
+  }
+
+  window.onload=function(){
+    startTime();
+    decideComidaHora();
+
+  }
 </script>

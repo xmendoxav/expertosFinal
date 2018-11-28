@@ -34,7 +34,8 @@ class Welcome extends CI_Controller {
 	}
 
 	public function traeComidaxHora(){
-		$var = $this->input->post('tComida');
+		$var = $this->input->post('esta');
+		echo json_encode("enviamos esto");
 	}
 
 
