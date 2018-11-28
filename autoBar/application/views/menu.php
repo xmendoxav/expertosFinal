@@ -8,9 +8,9 @@
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
-  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/vendor/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/vendor/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/vendor/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/expertosFinal/autoBar/css/style.css">
   <!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
@@ -162,11 +162,11 @@
     </div>
   </footer>
   <!-- / footer -->
-  <script src="/expertosFinal/autoBar/vendor/js/jquery.min.js"></script>
-  <script src="/expertosFinal/autoBar/vendor/js/jquery.easing.min.js"></script>
-  <script src="/expertosFinal/autoBar/vendor/js/bootstrap.min.js"></script>
-  <script src="/expertosFinal/autoBar/vendor/js/custom.js"></script>
-  <script src="/expertosFinal/autoBar/vendor/contactform/contactform.js"></script>
+  <script src="/expertosFinal/autoBar/js/jquery.min.js"></script>
+  <script src="/expertosFinal/autoBar/js/jquery.easing.min.js"></script>
+  <script src="/expertosFinal/autoBar/js/bootstrap.min.js"></script>
+  <script src="/expertosFinal/autoBar/js/custom.js"></script>
+  <script src="/expertosFinal/autoBar/contactform/contactform.js"></script>
 
 </body>
 

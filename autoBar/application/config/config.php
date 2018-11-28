@@ -381,7 +381,10 @@ $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 0;
 //$config['sess_save_path'] = '/opt/lappstack-7.1.18-1/apache2/htdocs/quejas/session';
-$config['sess_save_path'] = '/opt/lampp/htdocs/expertosFinal/autoBar/session/';
+//Ubuntu
+//$config['sess_save_path'] = '/opt/lampp/htdocs/expertosFinal/autoBar/session/';
+//Windows
+$config['sess_save_path'] = 'C:\xampp\htdocs\expertosFinal\autoBar\session';
 
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
