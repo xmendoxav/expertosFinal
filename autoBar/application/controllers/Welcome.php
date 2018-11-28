@@ -33,6 +33,10 @@ class Welcome extends CI_Controller {
 		$insertaUsr = $this->modelsP->insertaUsr($name, $apellidos, $email, $age, $sexo, $psw, $l_nac);
 	}
 
+	public function traeComidaxHora(){
+		$var = $this->input->post('tComida');
+	}
+
 
 	public function ingresar(){
 		$nombre = $this->input->post('nombre');

@@ -64,12 +64,12 @@
             <h2>Servicio Automatizado de Comida.</h2>
           </div>
 
-          <form >
+          <form class="" action="<?php echo base_url(); ?>index.php\Welcome\ingresar" method="post">
           <div class="col-sm-2">
-            <h2>Bienvenido</h2>
+            <h2>Bienvenido!</h2>
           </div>
           <div class="col-md-6 col-sm-2" style="margin-top: 35px; margin-bottom: 35px;">
-            <input type="text" class="form-control label-floating is-empty" id="nombre" placeholder="Nombre" data-rule="required" data-msg="Campo requerido" />
+            <input type="text" class="form-control label-floating is-empty" id="nombre" name="nombre" placeholder="Nombre" data-rule="required" data-msg="Campo requerido" />
           </div>
           <div class="col-md-6 col-sm-2" style="margin-bottom: 50px;">
             <input type="password" class="form-control label-floating is-empty" name="psw" id="psw" placeholder="Contraseña" data-rule="required" data-msg="Campo requerido" />
@@ -412,5 +412,6 @@ $(document).ready(function(){
  function ingresa(){
    document.getElementById('id').value;
    document.getElementById('id').value;
+
  }
 </script>

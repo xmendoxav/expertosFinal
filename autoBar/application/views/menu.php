@@ -18,6 +18,7 @@
     Author URL: https://bootstrapmade.com
   ======================================================= -->
 </head>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
   function startTime(){
     today=new Date();
@@ -37,14 +38,45 @@
     return i;
   }
 
-  function checaHora(){
-    alert(h+":"+m+":"+s);
+  function traeComidaxHora(tComida){
+    alert("Entramos a traeComidaHora"+tComida);
+    $.ajax({
+      url:"<?php echo base_url() ?>index.php/Welcome/traeComidaxHora",
+      type:"POST",
+      data:{tComida:tComida},
+      succes: function(){
+        
+      }
+    });
   }
-  //http://foros.cristalab.com/comparar-horas-t93393/
+
+  function decideComidaHora(){
+    //Hora de atencion de 07:00 a 23:00
+    // 7 Se abre a las 7 
+    // 23 Se cierra a las 23;
+    // 11 El desayuno acaba a las 11:00
+    // 18 La comida acaba a las 18:00
+    // 23 LA cena acaba a las 23:00 (Hora del cierre)
+    alert(h+":"+m+":"+s);
+    if((h>=7) && (h<=11)){
+      //Hora del desayuno
+      var tComida = 'D';
+      alert("Hora del desayuno");
+    }else if((h>=11)&&(h<=18)){
+      //Hora de la comida
+      var tComida = 'C';
+      alert("Hora de la comida");
+      traeComidaxHora(tComida);
+    }else if((h>=18)&&(h<=23)){
+      //Hora de la cena
+      var tComida = 'CE';
+      alert("Hora de la cena");
+    }
+  }
 
   window.onload=function(){
     startTime();
-    checaHora();
+    decideComidaHora();
   }
 </script>
 
