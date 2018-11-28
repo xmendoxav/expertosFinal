@@ -40,6 +40,7 @@
   function checaHora(){
     alert(h+":"+m+":"+s);
   }
+  //http://foros.cristalab.com/comparar-horas-t93393/
 
   window.onload=function(){
     startTime();
