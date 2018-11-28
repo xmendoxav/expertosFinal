@@ -82,13 +82,15 @@ class Welcome extends CI_Controller {
 			$datos["comidas"] = $this->modelsP->buscaPlatillos("C");
 			$datos["cenas"] = $this->modelsP->buscaPlatillos("CE");
 			$datos["bebidas"] = $this->modelsP->buscaPlatillos("B");
-			
-
 		}
 
 		//$datos["recomendaciones"] =
 		//var_dump($datos);
 
+
+	}
+	public function agregaComida(){
+		$nombreComida = $this->input->post('nombre');
 
 	}
 }

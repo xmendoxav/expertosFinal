@@ -84,63 +84,72 @@
         </div>
 
         <div id="menu-wrapper">
-         <?php for ($i=0; $i <count($desayunos) ; $i++) {?>
+         <?php $j = 0; for ($i=0; $i <count($desayunos) ; $i++) {?>
           <div class="breakfast menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $desayunos[$i]["nombre"] ?></a>
+              <a class="menu-title" onclick="mostrar(<?php echo $desayunos[$i]["nombre"] ?>)" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $desayunos[$i]["nombre"] ?></a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
               <span class="menu-price">$<?php echo $desayunos[$i]["precio"] ?></span>
+              <span><button type="button" value="<?php echo $desayunos[$i]["nombre"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j;?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+</button></span>
             </span>
+            <div class="opciones">
+
+            </div>
             <span class="menu-subtitle"><?php echo $desayunos[$i]["descripcion"] ?></span>
           </div>
-        <?php } ?>
+        <?php $j = $j+1; }  ?>
         <?php for ($i=0; $i < count($comidas); $i++)  { ?>
           <div class="lunch menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $comidas[$i]["nombre"] ?></a>
+              <a class="menu-title" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $comidas[$i]["nombre"] ?></a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
               <span class="menu-price">$<?php echo $comidas[$i]["precio"] ?></span>
+              <span><button type="button" value="<?php echo $comidas[$i]["nombre"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+</button></span>
+
             </span>
             <span class="menu-subtitle"><?php echo $comidas[$i]["descripcion"] ?></span>
           </div>
-        <?php } ?>
+        <?php $j = $j+1;} ?>
         <?php for ($i=0; $i <count($cenas) ; $i++) { ?>
         <div class="dinner menu-restaurant">
             <span class="clearfix">
               <a class="menu-title" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $cenas[$i]["nombre"] ?></a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
               <span class="menu-price">$<?php echo $cenas[$i]["precio"] ?></span>
-            </span>
+              <span><button type="button" value="<?php echo $cenas[$i]["nombre"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+              </button></span></span>
             <span class="menu-subtitle"><?php echo $cenas[$i]["descripcion"] ?></span>
 
           </div>
-        <?php } ?>
+        <?php $j = $j+1;} ?>
         </div>
         <?php for ($i=0; $i <count($bebidas) ; $i++) { ?>
         <div class="sodas menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $bebidas[$i]["nombre"] ?></a>
+              <a class="menu-title" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $bebidas[$i]["nombre"] ?></a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
               <span class="menu-price">$<?php echo $bebidas[$i]["precio"] ?></span>
+              <span><button type="button" value="<?php echo $bebidas[$i]["nombre"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+              </button></span></span>
             </span>
             <span class="menu-subtitle"><?php echo $bebidas[$i]["descripcion"] ?></span>
           </div>
-        <?php } ?>
+        <?php $j = $j+1;} ?>
         </div>
 
       </div>
     </div>
   </section>
-  <div id="myModal" class="modal fade" role="dialog">
-<div class="modal-dialog">
-    <div class="modal fade" id="myModal" role="dialog">
+  <div class='modal fade' id='myModal' role='dialog'>
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Modal Header</h4>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="infoPlatillo">
           <p>This is a small modal.</p>
         </div>
         <div class="modal-footer">
@@ -148,6 +157,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
   <!--/ menu -->
@@ -210,6 +220,14 @@ $(document).ready(function(){
   });
 
  });
+ function agregar(valor){
+   var nombre = document.getElementById(valor).value;
 
 
+ }
+
+ function mostrar(nombre){
+   alert(nombre)
+   document.getElementById("infoPlatillo").innerHTML = nombre;
+ }
 </script>
