@@ -27,6 +27,13 @@
   	$resultado = $this->db->query($query);
   	return $resultado->result_array();
   }
+
+  public function buscaPlatillosporId($id){
+    $query = "SELECT * FROM menu WHERE id = '".$id."'";
+    $resultado = $this->db->query($query);
+    return $resultado->row_array();
+  }
+
 	public function buscaIdComida($nombreComida){
 		$query = "SELECT id FROM menu WHERE nombre = '".$nombreComida."'";
 		$resultado = $this->db->query($query);
@@ -39,5 +46,27 @@
 		$this->db->query($query);
 
 	}
+
+  public function calculaPromedios(){
+    $query = "SELECT id_menu, AVG(valoracion) FROM `consumo` GROUP BY id_menu ORDER BY AVG(valoracion) DESC"; 
+    $resultado = $this->db->query($query);
+    return $resultado->result_array();
+  }
+
+  public function obtenNombreComida($id_menu){ //Obtiene el nombre de una comida
+    $query = " SELECT nombre FROM menu WHERE id = '".$id_menu."' ";
+    $resultado = $this->db->query($query);
+    $resultado = $resultado ->row_array();
+    $resultado = $resultado["nombre"];
+    return $resultado;
+  }
+
+  public function obtenDescComida($id_menu){ //Obtiene el nombre de una comida
+    $query = " SELECT descripcion FROM menu WHERE id = '".$id_menu."' ";
+    $resultado = $this->db->query($query);
+    $resultado = $resultado ->row_array();
+    $resultado = $resultado["descripcion"];
+    return $resultado;
+  }
 }
 ?>

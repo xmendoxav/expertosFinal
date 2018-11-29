@@ -78,7 +78,7 @@ input[type="radio"]:checked ~ label {
           <!-- Indicators -->
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <?php for ($i=1; $i <count($recomendacionHora) ; $i++) { ?>
+            <?php for ($i=1; $i <count($recomendacionHora); $i++) { ?>
               <li data-target="#myCarousel" data-slide-to=" <?php echo $i; ?> " ></li>
             <?php }?>
           </ol>
@@ -129,35 +129,53 @@ input[type="radio"]:checked ~ label {
         </div>
       </div>
       <?php if ($consumos != NULL){ ?>
+        <!-- SI HAY CONSUMOS-->
+        <!-- LO MÁS VALORADO!!!!-->
       <div class="row">
         <!--aqui vamos a agregar los tipos de sugerencias por los diferentes tipos-->
-        <?php for ($i=0; $i <count($variableSugerenciasHora) ; $i++) { ?>
-
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol id="numeroOpciones"class="carousel-indicators">
+          <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        </ol>
+            <?php for ($i=1; $i <4; $i++) { ?>
+              <li data-target="#myCarousel" data-slide-to=" <?php echo $i; ?> " ></li>
+            <?php }?>
+          </ol>
   <!-- Wrapper for slides -->
-        <div id= "imagenes"class="carousel-inner">
-          <div class="item active">
-            <img src="https://mxcity.mx/wp-content/uploads/2016/10/platillos-tipicamente-mexicanos.jpg" alt="Los Angeles">
+  <div class="carousel-inner">
+        <div class="item active">
+              <img src= <?php echo $comidaValorada[0]["info"]["imagen"]; ?> alt="Los Angeles" style="width:100%;">
+              <div class="carousel-caption">
+                <h3> <?php echo $comidaValorada[0]['info']["nombre"]; ?> </h3>
+                <h3> <?php echo $comidaValorada[0]["avg"]; ?> </h3>
+                <p> <?php echo $comidaValorada[0]["info"]['descripcion']; ?> </p>
+              </div>
           </div>
 
+          <?php for ($i=1; $i <4 ; $i++) { ?>
+              <div class="item">
+                <img src=<?php echo $comidaValorada[$i]["info"]["imagen"]; ?> alt="Chicago" style="width:100%;">
+                <div class="carousel-caption">
+                  <h3> <?php echo $comidaValorada[$i]['info']["nombre"]; ?> </h3>
+                <h3> <?php echo $comidaValorada[$i]["avg"]; ?> </h3>
+                <p> <?php echo $comidaValorada[$i]["info"]['descripcion']; ?> </p>
+                </div>
+              </div>
+            <?php }?>
+
         </div>
-      <?php }?>
   <!-- Left and right controls -->
         <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-          <span class="fa fa-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-          <span class="fa fa-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
       </div>
     </div>
-  <?php }else {?>
+
+  <?php }else {?><!-- NO HAY CONSUMOS DEL USUARIO -->
       <div class="row">
         <div class="row">
           <div class="col-md-12 text-center marb-35">
