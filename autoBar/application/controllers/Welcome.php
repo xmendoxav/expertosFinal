@@ -120,7 +120,47 @@ class Welcome extends CI_Controller {
 			$time = getdate();
 			//$h = $time['hours'];
 			$h = 22;
-			
+			$usuario = $this->session->userdata('id');
+			$cuentas = $this->modelsP->sumaConsumo($usuario);
+
+			$registros = $cuentas[0]["numeroR"];
+			$consumo = $cuentas[0]["consumo"];
+			$promedioConsumo = $consumo/$registros;
+			$valoresConsumo = $this->modelsP->vectorConsumos($usuario);
+			$suma = 0;
+			$promedioConsumo = floatval($promedioConsumo);
+
+			for ($i=0; $i <count($valoresConsumo) ; $i++) {
+				$valor = intval($valoresConsumo[$i]["consumo_total"]);
+				$resta = $valor-$promedioConsumo;
+				$resta = $resta*$resta;
+				$suma = $suma +$resta;
+
+
+			}
+			$termino = (1/($registros-1))*$suma;
+			$desvEstan = sqrt($termino);
+			$desvEstan = $desvEstan/2;
+			$menor = bcdiv($promedioConsumo -$desvEstan,'1',3);
+			$mayor = bcdiv($promedioConsumo +$desvEstan,'1',3);
+			$datos["pudientes"] = $this->modelsP->obtenPlatillosChidos($menor,$mayor);
+
+
+
+
+		//===================================================
+		//Tus preferidos
+		$idPlatillos = $this->modelsP->tusPreferidos($usuario);
+
+		for ($i=0; $i <count($idPlatillos) ; $i++) {
+			$datos["tusFavoritos"][$i] = $this->modelsP->buscaComida($idPlatillos[$i]["id_menu"]);
+		}
+		
+
+
+
+
+		//===================================================
 			//Hora de atencion de 07:00 a 23:00
 				// 7 Se abre a las 7
 				// 23 Se cierra a las 23;
@@ -152,9 +192,12 @@ class Welcome extends CI_Controller {
 	public function agregaAlMenu(){
 		$nombreComida = $this->input->post('tratada');
 		$calificacion = $this->input->post('calificacion');
+		//$precio = $this->input->post('precio');
 		$idComida = $this->modelsP->buscaIdComida($nombreComida);
 		$usuario = $this->session->userdata('id');
-		$this->modelsP->ingresaCompra($idComida,$usuario,$calificacion);
+		$precio =$this->modelsP->buscaPrecioComida($idComida);
+
+		$this->modelsP->ingresaCompra($idComida,$usuario,$calificacion, $precio);
 
 
 	}

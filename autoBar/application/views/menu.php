@@ -64,7 +64,11 @@ input[type="radio"]:checked ~ label {
 
 <body>
   <!-- ESTA ES LA SECCION DE RECOMENDACION POR LA HORA DEL DÍA-->
-
+  <div class="container">
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <!-- ... -->
+    </nav>
+</div>
   <!--AQUI ACABA LA SECCION DE RECOMENDACION POR LA HORA DEL DÍA-->
 
   <section id="menu-list" class="section-padding">
@@ -82,8 +86,8 @@ input[type="radio"]:checked ~ label {
           <div class="container">
             <div class="row">
               <div class="col-md-12 text-center">
-                <h1 class="header-h">¿Qué hora es?</h1>
-                <h1 class="header-h">Nuestra recomendación de la hora</h1>
+                <h1 class="header-h">Es hora de disfrutar</h1>
+                <h1 class="header-h">Nuestra recomendación para esta hora del día</h1>
                 <div id="reloj" style="font-size:20px;"></div>
               </div>
             </div>
@@ -121,17 +125,124 @@ input[type="radio"]:checked ~ label {
 
                 <!-- Left and right controls -->
                 <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="fa fa-caret-left"></span>
                   <span class="sr-only">Previous</span>
                 </a>
                 <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="fa fa-caret-right"></span>
                   <span class="sr-only">Next</span>
                 </a>
               </div>
 
             </div>
         </section>
+        <div class="row">
+          <section id="cost">
+            <section id="xCost">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <h1 class="header-h">Por que te gusta concentirte</h1>
+                    <h1 class="header-h">Nuestra recomendación por precios para ti</h1>
+                    <div id="reloj" style="font-size:20px;"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <?php for ($i=1; $i <count($pudientes) ; $i++) { ?>
+                        <li data-target="#myCarousel" data-slide-to=" <?php echo $i; ?> " ></li>
+                      <?php }?>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src= <?php echo $pudientes[0]["imagen"]; ?> alt="Los Angeles" style="width:100%;">
+                        <div class="carousel-caption">
+                          <h3> <?php echo $pudientes[0]["nombre"]; ?> </h3>
+                          <p> <?php echo $pudientes[0]["descripcion"]; ?> </p>
+                        </div>
+                      </div>
+                      <?php for ($i=1; $i <count($pudientes) ; $i++) { ?>
+                        <div class="item">
+                          <img src=<?php echo $pudientes[$i]["imagen"]; ?> alt="Chicago" style="width:100%;">
+                          <div class="carousel-caption">
+                            <h3><?php echo $pudientes[$i]["nombre"]; ?></h3>
+                            <p><?php echo $pudientes[$i]["descripcion"]; ?></p>
+                          </div>
+                        </div>
+                      <?php }?>
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+                      <span class="fa fa-caret-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+                      <span class="fa fa-caret-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                    </div>
+          </section>
+
+        </div>
+        <div class="row">
+          <section id="likeit">
+            <section id="likeit">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12 text-center">
+                    <h1 class="header-h">Lo que te encanta</h1>
+                    <h1 class="header-h">Tus mejores gustos aqui</h1>
+                    <div id="reloj" style="font-size:20px;"></div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div id="myCarousel3" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <?php for ($i=1; $i <count($tusFavoritos) ; $i++) { ?>
+                        <li data-target="#myCarousel" data-slide-to=" <?php echo $i; ?> " ></li>
+                      <?php }?>
+                    </ol>
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div class="item active">
+                        <img src= <?php echo $tusFavoritos[0]["imagen"]; ?> alt="Los Angeles" style="width:100%;">
+                        <div class="carousel-caption">
+                          <h3> <?php echo $tusFavoritos[0]["nombre"]; ?> </h3>
+                          <p> <?php echo $tusFavoritos[0]["descripcion"]; ?> </p>
+                        </div>
+                      </div>
+                      <?php for ($i=1; $i <count($tusFavoritos) ; $i++) { ?>
+                        <div class="item">
+                          <img src=<?php echo $tusFavoritos[$i]["imagen"]; ?> alt="Chicago" style="width:100%;">
+                          <div class="carousel-caption">
+                            <h3><?php echo $tusFavoritos[$i]["nombre"]; ?></h3>
+                            <p><?php echo $tusFavoritos[$i]["descripcion"]; ?></p>
+                          </div>
+                        </div>
+                      <?php }?>
+                    </div>
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel3" data-slide="prev">
+                      <span class="fa fa-caret-left"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel3" data-slide="next">
+                      <span class="fa fa-caret-right"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                    </div>
+          </section>
+
+        </div>
+
   <?php }else {?>
       <div class="row">
         <div class="row">
@@ -305,10 +416,13 @@ var calificacion = document.getElementById('calificacion').value;
     var tratada =  datos[i].textContent;
     tratada = tratada.split("/");
     tratada = tratada[0];
+    precio = tratada[1];
+    precio = precio.split("$");
+    precio = precio[0];
     $.ajax({
       url:"<?php echo base_url(); ?>index.php/Welcome/agregaAlMenu",
       type: "POST",
-      data:{tratada:tratada, calificacion:calificacion},
+      data:{tratada:tratada, calificacion:calificacion, precio:precio},
       succes:function(respuesta){
         alert(respuesta)
 
