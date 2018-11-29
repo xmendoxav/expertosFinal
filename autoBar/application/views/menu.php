@@ -292,6 +292,10 @@ input[type="radio"]:checked ~ label {
 </html>
 
 <script type="text/javascript">
+function borrar(){
+  document.getElementById('infoPlatillo').innerHTML =" "
+
+}
 function realizar(){
 var calificacion = document.getElementById('calificacion').value;
 
