@@ -27,6 +27,13 @@
   	$resultado = $this->db->query($query);
   	return $resultado->result_array();
   }
+
+  public function buscaPlatillosporId($id){
+    $query = "SELECT * FROM menu WHERE id = '".$id."'";
+    $resultado = $this->db->query($query);
+    return $resultado->row_array();
+  }
+
 	public function buscaIdComida($nombreComida){
 		$query = "SELECT id FROM menu WHERE nombre = '".$nombreComida."'";
 		$resultado = $this->db->query($query);

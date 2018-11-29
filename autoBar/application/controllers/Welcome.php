@@ -81,7 +81,7 @@ class Welcome extends CI_Controller {
 			//var_dump(count($datos));
 			//die();
 			//Obtenemos la hora, para saber que recomendar POR HORA
-			date_default_timezone_set("America/Inuvik");
+			date_default_timezone_set("America/Mexico_City");
 			$time = getdate();
 			//$h = $time['hours'];
 			$h = 22;
@@ -97,15 +97,21 @@ class Welcome extends CI_Controller {
 		      $datos["recomendacionHora"] = $datos['desayunos'];
 		    }else if(($h>=11)&&($h<=18)){
 		      //Hora de la comida
-		      echo "Hora de la comida";
-		      $datos["recomendacionHora"] = $datos['comidas'];
+		    	echo "Hora de la comida";
+		    	$datos["recomendacionHora"] = $datos['comidas'];
 		    }else if(($h>=18)&&($h<=23)){
 		      //Hora de la cena
 		      $datos["recomendacionHora"] = $datos['cenas'];
 		    }
 			$this->load->view('menu', $datos);
 		}else {
-
+			//HAY CONSUMOS, ASI QUE CALCULAR LOS MÁS VALORADOS
+			$promediosValor = $this->modelsP->calculaPromedios(); //Obtiene los promedios en orden DESCENDENTE (DEL MAYOR AL MENOR)
+			for ($i=0; $i <4 ; $i++) {
+				$comidaValorada[$i]['avg'] = $promediosValor[$i]["AVG(valoracion)"];
+				$comidaValorada[$i]['info']=$this->modelsP->buscaPlatillosporId($promediosValor[$i]['id_menu']);
+			}
+			$datos["comidaValorada"] = $comidaValorada;
 			/*aqui tenenmos diferentes variables de entradada para el modelo, para desayuno
 			basta con poner:
 			DESAYUNO = "D"
@@ -155,7 +161,7 @@ class Welcome extends CI_Controller {
 		for ($i=0; $i <count($idPlatillos) ; $i++) {
 			$datos["tusFavoritos"][$i] = $this->modelsP->buscaComida($idPlatillos[$i]["id_menu"]);
 		}
-		
+
 
 
 
@@ -180,7 +186,9 @@ class Welcome extends CI_Controller {
 					$datos["recomendacionHora"] = $datos['cenas'];
 				}
 			$this->load->view('menu', $datos);
+
 			//$this->load->view('menu', $datos);
+
 
 		}
 
