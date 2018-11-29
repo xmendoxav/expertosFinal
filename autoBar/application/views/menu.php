@@ -133,11 +133,11 @@ input[type="radio"]:checked ~ label {
         <!-- LO MÁS VALORADO!!!!-->
       <div class="row">
         <!--aqui vamos a agregar los tipos de sugerencias por los diferentes tipos-->
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div id="myCarousel2" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
             <?php for ($i=1; $i <4; $i++) { ?>
-              <li data-target="#myCarousel" data-slide-to=" <?php echo $i; ?> " ></li>
+              <li data-target="#myCarousel2" data-slide-to=" <?php echo $i; ?> " ></li>
             <?php }?>
           </ol>
   <!-- Wrapper for slides -->
@@ -164,11 +164,11 @@ input[type="radio"]:checked ~ label {
 
         </div>
   <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only">Previous</span>
           </a>
-          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <a class="right carousel-control" href="#myCarousel2" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
           </a>
