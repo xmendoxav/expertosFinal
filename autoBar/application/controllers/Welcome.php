@@ -34,8 +34,11 @@ class Welcome extends CI_Controller {
 	}
 
 	public function traeComidaxHora(){
-		$var = $this->input->post('esta');
-		echo json_encode("enviamos esto");
+		$tComida = $this->input->post('tComida');
+		//$insertaUsr = $this->modelsP->insertaUsr($tComida, 'Prueba', 'echo-4109@hotmail.com', '10', '2', '1234', 'Tolus');
+		$comidaxHora = $this->modelsP->buscaPlatillos($tComida);
+
+		echo json_encode($comidaxHora);
 	}
 
 
@@ -77,6 +80,28 @@ class Welcome extends CI_Controller {
 			$datos["bebidas"] = $this->modelsP->buscaPlatillos("B");
 			//var_dump(count($datos));
 			//die();
+			//Obtenemos la hora, para saber que recomendar POR HORA
+			date_default_timezone_set("America/Inuvik");
+			$time = getdate();
+			$h = $time['hours'];
+			//Hora de atencion de 07:00 a 23:00
+		    // 7 Se abre a las 7 
+		    // 23 Se cierra a las 23;
+		    // 11 El desayuno acaba a las 11:00
+		    // 18 La comida acaba a las 18:00
+		    // 23 LA cena acaba a las 23:00 (Hora del cierre)
+		    if(($h>=7) && ($h<=11)){
+		      //Hora del desayuno
+		      echo "Hora del desayuno";
+		      $datos["recomendacionHora"] = $datos['desayunos']; 
+		    }else if(($h>=11)&&($h<=18)){
+		      //Hora de la comida
+		      echo "Hora de la comida";
+		      $datos["recomendacionHora"] = $datos['comidas']; 
+		    }else if(($h>=18)&&($h<=23)){
+		      //Hora de la cena
+		      $datos["recomendacionHora"] = $datos['cenas']; 
+		    }		    
 			$this->load->view('menu', $datos);
 		}else {
 

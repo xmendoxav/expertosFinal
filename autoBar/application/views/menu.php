@@ -33,15 +33,56 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <h1 class="header-h">¿Qué hora es?</h1>
+          <h1 class="header-h">Nuestra recomendación de la hora</h1>
           <div id="reloj" style="font-size:20px;"></div>
         </div>
       </div>
       <div class="row">
-        <div id="columnas">
-          <li>Ataúlfo</li>
-          <li>Sigerico</li>
-          <li>Walia</li>
+
+
+
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+          </ol>
+
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+
+            <div class="item active">
+              <img src= <?php echo $recomendacionHora[0]["imagen"]; ?> alt="Los Angeles" style="width:100%;">
+              <div class="carousel-caption">
+                <h3> <?php echo $recomendacionHora[0]["nombre"]; ?> </h3>
+                <p> <?php echo $recomendacionHora[0]["descripcion"]; ?> </p>
+              </div>
+            </div>
+
+            <?php for ($i=1; $i <count($recomendacionHora) ; $i++) { ?>
+              <div class="item">
+                <img src=<?php echo $recomendacionHora[$i]["imagen"]; ?> alt="Chicago" style="width:100%;">
+                <div class="carousel-caption">
+                  <h3><?php echo $recomendacionHora[$i]["nombre"]; ?></h3>
+                  <p><?php echo $recomendacionHora[$i]["descripcion"]; ?></p>
+                </div>
+              </div>
+            <?php }?>
+          </div>
+
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
+
       </div>
   </section>
   <!--AQUI ACABA LA SECCION DE RECOMENDACION POR LA HORA DEL DÍA-->
@@ -225,6 +266,7 @@
   <script src="/expertosFinal/autoBar/js/bootstrap.min.js"></script>
   <script src="/expertosFinal/autoBar/js/custom.js"></script>
   <script src="/expertosFinal/autoBar/contactform/contactform.js"></script>
+  <script src="/expertosFinal/autoBar/css/bootstrap.min.css"></script>
 
 </body>
 
@@ -278,15 +320,14 @@ $(document).ready(function(){
 
   function traeComidaxHora(tComida){
     alert("Entramos a traeComidaHora"+tComida);
-    var esta = tComida;
+    console.log('Entramos a traeComidaxHora x2');
     $.ajax({
       url:"<?php echo base_url() ?>index.php/Welcome/traeComidaxHora",
       type:"POST",
-      data:{esta:esta},
+      data:{tComida:tComida},
       succes: function(respuesta){
         console.log(respuesta);
-
-      },error:function(error){
+      },error: function(error){
         console.log(error)
       }
     });
@@ -308,7 +349,6 @@ $(document).ready(function(){
       //Hora de la comida
       var tComida = 'C';
       alert("Hora de la comida");
-      traeComidaxHora(tComida);
     }else if((h>=18)&&(h<=23)){
       //Hora de la cena
       var tComida = 'CE';
@@ -318,7 +358,6 @@ $(document).ready(function(){
 
   window.onload=function(){
     startTime();
-    decideComidaHora();
-
+    //decideComidaHora();
   }
 </script>
