@@ -90,6 +90,8 @@ class Welcome extends CI_Controller {
 			$datos["comidas"] = $this->modelsP->buscaPlatillos("C");
 			$datos["cenas"] = $this->modelsP->buscaPlatillos("CE");
 			$datos["bebidas"] = $this->modelsP->buscaPlatillos("B");
+			$this->load->view('menu', $datos);
+			
 		}
 
 		//$datos["recomendaciones"] =
@@ -101,7 +103,9 @@ class Welcome extends CI_Controller {
 		$nombreComida = $this->input->post('tratada');
 		$calificacion = $this->input->post('calificacion');
 		$idComida = $this->modelsP->buscaIdComida($nombreComida);
-		
+		$usuario = $this->session->userdata('id');
+		$this->modelsP->ingresaCompra($idComida,$usuario,$calificacion);
+
 
 	}
 }

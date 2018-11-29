@@ -299,8 +299,9 @@ var calificacion = document.getElementById('calificacion').value;
 
       }
     });
-    alert("Tu compra ha sido realizada, vuelve pronto")
   }
+  alert("Tu compra ha sido realizada, vuelve pronto")
+  
 
 
 }
