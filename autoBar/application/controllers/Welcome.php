@@ -145,11 +145,10 @@ class Welcome extends CI_Controller {
 					$datos["recomendacionHora"] = $datos['cenas'];
 				}
 			$this->load->view('menu', $datos);
-<<<<<<< HEAD
-=======
+
 			//$this->load->view('menu', $datos);
 
->>>>>>> 9310578efb04cf4dec90c77a3b00f65ae2adce1e
+
 		}
 
 		//$datos["recomendaciones"] =
