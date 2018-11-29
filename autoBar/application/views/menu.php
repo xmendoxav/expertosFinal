@@ -74,10 +74,6 @@ input[type="radio"]:checked ~ label {
         </div>
       </div>
       <div class="row">
-
-
-
-
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
           <ol class="carousel-indicators">
@@ -343,7 +339,7 @@ var calificacion = document.getElementById('calificacion').value;
     });
   }
   alert("Tu compra ha sido realizada, vuelve pronto")
-  
+
 
 
 }

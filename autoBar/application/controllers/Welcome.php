@@ -85,7 +85,7 @@ class Welcome extends CI_Controller {
 			$time = getdate();
 			$h = $time['hours'];
 			//Hora de atencion de 07:00 a 23:00
-		    // 7 Se abre a las 7 
+		    // 7 Se abre a las 7
 		    // 23 Se cierra a las 23;
 		    // 11 El desayuno acaba a las 11:00
 		    // 18 La comida acaba a las 18:00
@@ -93,15 +93,15 @@ class Welcome extends CI_Controller {
 		    if(($h>=7) && ($h<=11)){
 		      //Hora del desayuno
 		      echo "Hora del desayuno";
-		      $datos["recomendacionHora"] = $datos['desayunos']; 
+		      $datos["recomendacionHora"] = $datos['desayunos'];
 		    }else if(($h>=11)&&($h<=18)){
 		      //Hora de la comida
 		      echo "Hora de la comida";
-		      $datos["recomendacionHora"] = $datos['comidas']; 
+		      $datos["recomendacionHora"] = $datos['comidas'];
 		    }else if(($h>=18)&&($h<=23)){
 		      //Hora de la cena
-		      $datos["recomendacionHora"] = $datos['cenas']; 
-		    }		    
+		      $datos["recomendacionHora"] = $datos['cenas'];
+		    }
 			$this->load->view('menu', $datos);
 		}else {
 
@@ -115,8 +115,30 @@ class Welcome extends CI_Controller {
 			$datos["comidas"] = $this->modelsP->buscaPlatillos("C");
 			$datos["cenas"] = $this->modelsP->buscaPlatillos("CE");
 			$datos["bebidas"] = $this->modelsP->buscaPlatillos("B");
+			date_default_timezone_set("America/Inuvik");
+			$time = getdate();
+			$h = $time['hours'];
+			//Hora de atencion de 07:00 a 23:00
+				// 7 Se abre a las 7
+				// 23 Se cierra a las 23;
+				// 11 El desayuno acaba a las 11:00
+				// 18 La comida acaba a las 18:00
+				// 23 LA cena acaba a las 23:00 (Hora del cierre)
+				if(($h>=7) && ($h<=11)){
+					//Hora del desayuno
+					echo "Hora del desayuno";
+					$datos["recomendacionHora"] = $datos['desayunos'];
+				}else if(($h>=11)&&($h<=18)){
+					//Hora de la comida
+					echo "Hora de la comida";
+					$datos["recomendacionHora"] = $datos['comidas'];
+				}else if(($h>=18)&&($h<=23)){
+					//Hora de la cena
+					$datos["recomendacionHora"] = $datos['cenas'];
+				}
 			$this->load->view('menu', $datos);
-			
+			$this->load->view('menu', $datos);
+
 		}
 
 		//$datos["recomendaciones"] =
