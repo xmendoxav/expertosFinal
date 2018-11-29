@@ -82,8 +82,9 @@ input[type="radio"]:checked ~ label {
           <!-- Indicators -->
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <?php for ($i=1; $i <count($recomendacionHora) ; $i++) { ?>
+              <li data-target="#myCarousel" data-slide-to=" <?php echo $i; ?> " ></li>
+            <?php }?>
           </ol>
 
           <!-- Wrapper for slides -->
