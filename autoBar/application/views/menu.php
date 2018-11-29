@@ -24,6 +24,42 @@
    column-gap:10px;
    column-rule:5px Outset gray;
 }
+#form {
+  width: 250px;
+  margin: 0 auto;
+  height: 50px;
+}
+
+#form p {
+  text-align: center;
+}
+
+#form label {
+  font-size: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+label {
+  color: grey;
+}
+
+.clasificacion {
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover ~ label {
+  color: orange;
+}
+
+input[type="radio"]:checked ~ label {
+  color: orange;
+}
+
 </style>
 
 <body>
@@ -58,7 +94,7 @@
       <div class="row">
         <!--aqui vamos a agregar los tipos de sugerencias por los diferentes tipos-->
         <?php for ($i=0; $i <count($variableSugerenciasHora) ; $i++) { ?>
-          
+
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
           <!-- Indicators -->
           <ol id="numeroOpciones"class="carousel-indicators">
@@ -109,6 +145,8 @@
             <li><a class="filter" data-filter=".dinner">Cena</a></li>
             <li><a class="filter" data-filter=".sodas">Bebidas</a></li>
           </ul>
+          <a class="btn btn-success" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg">Ver agregados</a>
+
         </div>
 
         <div id="menu-wrapper">
@@ -117,9 +155,9 @@
             <span class="clearfix">
               <a class="menu-title" onclick="mostrar(<?php echo $desayunos[$i]["nombre"] ?>)" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $desayunos[$i]["nombre"] ?></a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$<?php echo $desayunos[$i]["precio"] ?></span>
-              <span><button type="button" value="<?php echo $desayunos[$i]["nombre"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j;?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
-</button></span>
+              <span id="<?php echo $desayunos[$i]["nombre"] ?>" class="menu-price" value = "<?php echo $desayunos[$i]["precio"] ?>">$<?php echo $desayunos[$i]["precio"] ?></span>
+              <span><button type="button" value="<?php echo $desayunos[$i]["nombre"].'/$'.$desayunos[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j;?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+              </button></span>
             </span>
             <div class="opciones">
 
@@ -130,11 +168,13 @@
         <?php for ($i=0; $i < count($comidas); $i++)  { ?>
           <div class="lunch menu-restaurant">
             <span class="clearfix">
-              <a class="menu-title" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $comidas[$i]["nombre"] ?></a>
+              <a class="menu-title" onclick="despliega(<?php echo $j;?>)" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $comidas[$i]["nombre"] ?></a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
               <span class="menu-price">$<?php echo $comidas[$i]["precio"] ?></span>
-              <span><button type="button" value="<?php echo $comidas[$i]["nombre"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
-</button></span>
+              <span><button type="button"value="<?php echo $comidas[$i]["nombre"].'/$'.$comidas[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+              </button></span>
+              <div class="" id="opciones">
+                </div>
 
             </span>
             <span class="menu-subtitle"><?php echo $comidas[$i]["descripcion"] ?></span>
@@ -146,9 +186,10 @@
               <a class="menu-title" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $cenas[$i]["nombre"] ?></a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
               <span class="menu-price">$<?php echo $cenas[$i]["precio"] ?></span>
-              <span><button type="button" value="<?php echo $cenas[$i]["nombre"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+              <span><button type="button" value="<?php echo $cenas[$i]["nombre"].'/$'.$cenas[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
               </button></span></span>
             <span class="menu-subtitle"><?php echo $cenas[$i]["descripcion"] ?></span>
+
 
           </div>
         <?php $j = $j+1;} ?>
@@ -159,7 +200,7 @@
               <a class="menu-title" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $bebidas[$i]["nombre"] ?></a>
               <span style="left: 166px; right: 44px;" class="menu-line"></span>
               <span class="menu-price">$<?php echo $bebidas[$i]["precio"] ?></span>
-              <span><button type="button" value="<?php echo $bebidas[$i]["nombre"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+              <span><button type="button" value="<?php echo $sodas[$i]["nombre"].'/$'.$sodas[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
               </button></span></span>
             </span>
             <span class="menu-subtitle"><?php echo $bebidas[$i]["descripcion"] ?></span>
@@ -175,13 +216,19 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Alimentos ordenados</h4>
+          <form>
+            Califica nuestra comida(escala de 1-10)
+            <div class="form-group label-floating is-empty">
+              <input type="text" name="name" class="form-control" id="calificacion" placeholder="calificacion" data-rule="minlen:3" data-msg="tu valoración" pattern="^(?:[1-9]|10)$" />
+              <div class="validation"></div>
+            </div>
+
         </div>
-        <div class="modal-body" id="infoPlatillo">
-          <p>This is a small modal.</p>
-        </div>
+        <div class="modal-body" id="infoPlatillo"></div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-outline-success" onclick="realizar()" data-dismiss="modal">Realizar</button>
+          <button type="button" class="btn btn-outline-warning" onclick="borrar()" data-dismiss="modal">Borrar pedido</button>
         </div>
       </div>
     </div>
@@ -231,7 +278,41 @@
 </html>
 
 <script type="text/javascript">
+function realizar(){
+var calificacion = document.getElementById('calificacion').value;
+
+  console.log(calificacion);
+   var datos = document.querySelectorAll("#infoPlatillo p");
+  for (var i = 0; i < datos.length; i++) {
+    var tratada =  datos[i].textContent;
+    tratada = tratada.split("/");
+    tratada = tratada[0];
+    $.ajax({
+      url:"<?php echo base_url(); ?>index.php/Welcome/agregaAlMenu",
+      type: "POST",
+      data:{tratada:tratada, calificacion:calificacion},
+      succes:function(respuesta){
+        alert(respuesta)
+
+      },error:function(error){
+        console.log(error);
+
+      }
+    });
+    alert("Tu compra ha sido realizada, vuelve pronto")
+  }
+
+
+}
+
 $(document).ready(function(){
+  $("#opcion").click(function(){
+    console.log("Click");
+    });
+  $('input:radio[name=estrellas]:checked').click(function(){
+    console.log($('input:radio[name=edad]:checked').val());
+
+  });
   var datos;
 
   $.ajax({
@@ -248,10 +329,22 @@ $(document).ready(function(){
   });
 
  });
+ var html = " ";
  function agregar(valor){
    var nombre = document.getElementById(valor).value;
-
-
+   //var precio = document.getElementsByName(nombre).value;
+   console.log(nombre);
+   html += "<p>"+nombre+"</p>"
+   var precio = nombre.split("/");
+   precio = precio[1];
+   precio = precio.split("$");
+   precio = precio[1];
+   precio = precio+precio
+   variable = "<p>Precio total"+precio+"</p>"
+   console.log(precio);
+   document.getElementById('infoPlatillo').innerHTML = html
+   //document.getElementById('infoPlatillo').innerHTML = html+ variable
+   alert("Producto agregado correctamente")
  }
 
  function mostrar(nombre){
@@ -294,7 +387,7 @@ $(document).ready(function(){
 
   function decideComidaHora(){
     //Hora de atencion de 07:00 a 23:00
-    // 7 Se abre a las 7 
+    // 7 Se abre a las 7
     // 23 Se cierra a las 23;
     // 11 El desayuno acaba a las 11:00
     // 18 La comida acaba a las 18:00
@@ -321,4 +414,6 @@ $(document).ready(function(){
     decideComidaHora();
 
   }
+
+
 </script>

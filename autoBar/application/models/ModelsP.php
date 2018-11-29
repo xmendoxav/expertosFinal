@@ -27,5 +27,8 @@
   	$resultado = $this->db->query($query);
   	return $resultado->result_array();
   }
+	public function busca IdComida($nombreComida){
+		$query = "select id from "
+	}
 }
 ?>

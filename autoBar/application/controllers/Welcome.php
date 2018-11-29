@@ -97,8 +97,11 @@ class Welcome extends CI_Controller {
 
 
 	}
-	public function agregaComida(){
-		$nombreComida = $this->input->post('nombre');
+	public function agregaAlMenu(){
+		$nombreComida = $this->input->post('tratada');
+		$calificacion = $this->input->post('calificacion');
+		$idComida = $this->modelsP->buscaIdComida($nombreComida);
+		
 
 	}
 }
