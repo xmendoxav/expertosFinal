@@ -10,6 +10,7 @@
   	return $this->db->query($query);
   }
 
+
   public function buscausr($nombre, $psw){
   	$query = "Select * from usuario where nombre = '".$nombre."' and psw = '".$psw."';";
   	$resultado = $this->db->query($query);
@@ -78,5 +79,25 @@
 		$resultado = $this->db->query($query);
 		return $resultado->row_array();
 	}
+	public function calculaPromedios(){
+	$query = "SELECT id_menu, AVG(valoracion) FROM `consumo`WHERE valoracion != 0 GROUP BY id_menu ORDER BY AVG(valoracion) DESC ";
+	$resultado = $this->db->query($query);
+	$resultado = $resultado->result_array();
+	return $resultado;
+}
+public function obtenNombreComida($id_menu){ //Obtiene el nombre de una comida
+	$query = " SELECT nombre FROM menu WHERE id = '".$id_menu."' ";
+	$resultado = $this->db->query($query);
+	$resultado = $resultado ->row_array();
+	$resultado = $resultado["nombre"];
+	return $resultado;
+}
+public function obtenDescComida($id_menu){ //Obtiene el nombre de una comida
+	$query = " SELECT descripcion FROM menu WHERE id = '".$id_menu."' ";
+	$resultado = $this->db->query($query);
+	$resultado = $resultado ->row_array();
+	$resultado = $resultado["descripcion"];
+	return $resultado;
+}
 }
 ?>

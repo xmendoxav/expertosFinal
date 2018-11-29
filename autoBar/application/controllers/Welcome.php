@@ -83,8 +83,7 @@ class Welcome extends CI_Controller {
 			//Obtenemos la hora, para saber que recomendar POR HORA
 			date_default_timezone_set("America/Mexico_City");
 			$time = getdate();
-			//$h = $time['hours'];
-			$h = 22;
+			$h = $time['hours'];
 			//Hora de atencion de 07:00 a 23:00
 		    // 7 Se abre a las 7
 		    // 23 Se cierra a las 23;
@@ -93,11 +92,9 @@ class Welcome extends CI_Controller {
 		    // 23 LA cena acaba a las 23:00 (Hora del cierre)
 		    if(($h>=7) && ($h<=11)){
 		      //Hora del desayuno
-		      echo "Hora del desayuno";
 		      $datos["recomendacionHora"] = $datos['desayunos'];
 		    }else if(($h>=11)&&($h<=18)){
 		      //Hora de la comida
-		    	echo "Hora de la comida";
 		    	$datos["recomendacionHora"] = $datos['comidas'];
 		    }else if(($h>=18)&&($h<=23)){
 		      //Hora de la cena
@@ -107,7 +104,7 @@ class Welcome extends CI_Controller {
 		}else {
 			//HAY CONSUMOS, ASI QUE CALCULAR LOS MÁS VALORADOS
 			$promediosValor = $this->modelsP->calculaPromedios(); //Obtiene los promedios en orden DESCENDENTE (DEL MAYOR AL MENOR)
-			for ($i=0; $i <4 ; $i++) {
+			for ($i=0; $i <count($promediosValor) ; $i++) {
 				$comidaValorada[$i]['avg'] = $promediosValor[$i]["AVG(valoracion)"];
 				$comidaValorada[$i]['info']=$this->modelsP->buscaPlatillosporId($promediosValor[$i]['id_menu']);
 			}
@@ -122,10 +119,9 @@ class Welcome extends CI_Controller {
 			$datos["comidas"] = $this->modelsP->buscaPlatillos("C");
 			$datos["cenas"] = $this->modelsP->buscaPlatillos("CE");
 			$datos["bebidas"] = $this->modelsP->buscaPlatillos("B");
-			date_default_timezone_set("America/Inuvik");
+			date_default_timezone_set("America/Mexico_City");
 			$time = getdate();
-			//$h = $time['hours'];
-			$h = 22;
+			$h = $time['hours'];
 			$usuario = $this->session->userdata('id');
 			$cuentas = $this->modelsP->sumaConsumo($usuario);
 
@@ -157,6 +153,9 @@ class Welcome extends CI_Controller {
 		//===================================================
 		//Tus preferidos
 		$idPlatillos = $this->modelsP->tusPreferidos($usuario);
+		if ($idPlatillos ) {
+			// code...
+		}
 
 		for ($i=0; $i <count($idPlatillos) ; $i++) {
 			$datos["tusFavoritos"][$i] = $this->modelsP->buscaComida($idPlatillos[$i]["id_menu"]);
@@ -175,27 +174,19 @@ class Welcome extends CI_Controller {
 				// 23 LA cena acaba a las 23:00 (Hora del cierre)
 				if(($h>=7) && ($h<=11)){
 					//Hora del desayuno
-					echo "Hora del desayuno";
 					$datos["recomendacionHora"] = $datos['desayunos'];
 				}else if(($h>=11)&&($h<=18)){
 					//Hora de la comida
-					echo "Hora de la comida";
 					$datos["recomendacionHora"] = $datos['comidas'];
 				}else if(($h>=18)&&($h<=23)){
 					//Hora de la cena
 					$datos["recomendacionHora"] = $datos['cenas'];
 				}
 			$this->load->view('menu', $datos);
-
 			//$this->load->view('menu', $datos);
-
-
 		}
-
 		//$datos["recomendaciones"] =
 		//var_dump($datos);
-
-
 	}
 	public function agregaAlMenu(){
 		$nombreComida = $this->input->post('tratada');
@@ -208,5 +199,9 @@ class Welcome extends CI_Controller {
 		$this->modelsP->ingresaCompra($idComida,$usuario,$calificacion, $precio);
 
 
+	}
+	public function logout(){
+		$this->load->view('VPrincipal.php');
+		$this->session->sess_destroy();
 	}
 }

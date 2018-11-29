@@ -64,6 +64,18 @@ input[type="radio"]:checked ~ label {
 
 <body>
   <!-- ESTA ES LA SECCION DE RECOMENDACION POR LA HORA DEL DÍA-->
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img alt="Brand" src="...">
+      </a>
+      <form action="<?php echo base_url(); ?>index.php\Welcome\logout" method="post">
+        <input type="submit" class="contacts-btn" value="Salir">
+      </form>
+    </div>
+  </div>
+</nav>
   <section id="xHour">
     <div class="container">
       <div class="row">
@@ -107,11 +119,11 @@ input[type="radio"]:checked ~ label {
 
           <!-- Left and right controls -->
           <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="fa fa-caret-left"></span>
             <span class="sr-only">Previous</span>
           </a>
           <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="fa fa-caret-right"></span>
             <span class="sr-only">Next</span>
           </a>
         </div>
@@ -136,7 +148,7 @@ input[type="radio"]:checked ~ label {
         <div id="myCarousel2" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-            <?php for ($i=1; $i <4; $i++) { ?>
+            <?php for ($i=1; $i <count($comidaValorada); $i++) { ?>
               <li data-target="#myCarousel2" data-slide-to=" <?php echo $i; ?> " ></li>
             <?php }?>
           </ol>
@@ -151,7 +163,7 @@ input[type="radio"]:checked ~ label {
               </div>
           </div>
 
-          <?php for ($i=1; $i <4 ; $i++) { ?>
+          <?php for ($i=1; $i <count($comidaValorada) ; $i++) { ?>
               <div class="item">
                 <img src=<?php echo $comidaValorada[$i]["info"]["imagen"]; ?> alt="Chicago" style="width:100%;">
                 <div class="carousel-caption">
@@ -161,6 +173,14 @@ input[type="radio"]:checked ~ label {
                 </div>
               </div>
             <?php }?>
+            <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+              <span class="fa fa-caret-left"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+              <span class="fa fa-caret-right"></span>
+              <span class="sr-only">Next</span>
+            </a>
 
             </div>
         </section>
@@ -176,12 +196,12 @@ input[type="radio"]:checked ~ label {
                   </div>
                 </div>
                 <div class="row">
-                  <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+                  <div id="myCarousel3" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
                       <?php for ($i=1; $i <count($pudientes) ; $i++) { ?>
-                        <li data-target="#myCarousel" data-slide-to=" <?php echo $i; ?> " ></li>
+                        <li data-target="#myCarousel3" data-slide-to=" <?php echo $i; ?> " ></li>
                       <?php }?>
                     </ol>
                     <!-- Wrapper for slides -->
@@ -204,11 +224,11 @@ input[type="radio"]:checked ~ label {
                       <?php }?>
                     </div>
                     <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+                    <a class="left carousel-control" href="#myCarousel3" data-slide="prev">
                       <span class="fa fa-caret-left"></span>
                       <span class="sr-only">Previous</span>
                     </a>
-                    <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+                    <a class="right carousel-control" href="#myCarousel3" data-slide="next">
                       <span class="fa fa-caret-right"></span>
                       <span class="sr-only">Next</span>
                     </a>
@@ -217,7 +237,8 @@ input[type="radio"]:checked ~ label {
           </section>
 
         </div>
-        <div class="row">
+        <?php if (isset($tusFavoritos)) { ?>
+          <div class="row">
           <section id="likeit">
             <section id="likeit">
               <div class="container">
@@ -229,12 +250,12 @@ input[type="radio"]:checked ~ label {
                   </div>
                 </div>
                 <div class="row">
-                  <div id="myCarousel3" class="carousel slide" data-ride="carousel">
+                  <div id="myCarousel4" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel4" data-slide-to="0" class="active"></li>
                       <?php for ($i=1; $i <count($tusFavoritos) ; $i++) { ?>
-                        <li data-target="#myCarousel" data-slide-to=" <?php echo $i; ?> " ></li>
+                        <li data-target="#myCarousel4" data-slide-to=" <?php echo $i; ?> " ></li>
                       <?php }?>
                     </ol>
                     <!-- Wrapper for slides -->
@@ -257,11 +278,11 @@ input[type="radio"]:checked ~ label {
                       <?php }?>
                     </div>
                     <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel3" data-slide="prev">
+                    <a class="left carousel-control" href="#myCarousel4" data-slide="prev">
                       <span class="fa fa-caret-left"></span>
                       <span class="sr-only">Previous</span>
                     </a>
-                    <a class="right carousel-control" href="#myCarousel3" data-slide="next">
+                    <a class="right carousel-control" href="#myCarousel4" data-slide="next">
                       <span class="fa fa-caret-right"></span>
                       <span class="sr-only">Next</span>
                     </a>
@@ -270,6 +291,9 @@ input[type="radio"]:checked ~ label {
           </section>
 
         </div>
+      </div>
+    <?php } ?>
+
 
   <?php }else {?>
       <div class="row">
@@ -283,84 +307,85 @@ input[type="radio"]:checked ~ label {
       </div>
     <?php } ?>
   </div>
-      <div class="row">
-        <div class="col-md-12 text-center marb-35">
-          <h1 class="header-h">Nuestro Menú</h1>
-          <p class="header-p">La mejor calidad en alimentos, organizada para tú comodidad. </p>
+
+  <div class="row">
+    <div class="col-md-12 text-center marb-35">
+      <h1 class="header-h">Nuestro Menú</h1>
+      <p class="header-p">La mejor calidad en alimentos, organizada para tú comodidad. </p>
+    </div>
+
+    <div class="col-md-12  text-center" id="menu-flters">
+      <ul>
+        <li><a class="filter active" data-filter=".menu-restaurant">Todo</a></li>
+        <li><a class="filter" data-filter=".breakfast">Desayuno</a></li>
+        <li><a class="filter" data-filter=".lunch">Comida</a></li>
+        <li><a class="filter" data-filter=".dinner">Cena</a></li>
+        <li><a class="filter" data-filter=".sodas">Bebidas</a></li>
+      </ul>
+      <a class="btn btn-success" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg">Ver agregados</a>
+
+    </div>
+
+    <div id="menu-wrapper">
+     <?php $j = 0; for ($i=0; $i <count($desayunos) ; $i++) {?>
+      <div class="breakfast menu-restaurant">
+        <span class="clearfix">
+          <a class="menu-title" onclick="mostrar(<?php echo $desayunos[$i]["nombre"] ?>)" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $desayunos[$i]["nombre"] ?></a>
+          <span style="left: 166px; right: 44px;" class="menu-line"></span>
+          <span id="<?php echo $desayunos[$i]["nombre"] ?>" class="menu-price" value = "<?php echo $desayunos[$i]["precio"] ?>">$<?php echo $desayunos[$i]["precio"] ?></span>
+          <span><button type="button" value="<?php echo $desayunos[$i]["nombre"].'/$'.$desayunos[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j;?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+          </button></span>
+        </span>
+        <div class="opciones">
+
         </div>
-
-        <div class="col-md-12  text-center" id="menu-flters">
-          <ul>
-            <li><a class="filter active" data-filter=".menu-restaurant">Todo</a></li>
-            <li><a class="filter" data-filter=".breakfast">Desayuno</a></li>
-            <li><a class="filter" data-filter=".lunch">Comida</a></li>
-            <li><a class="filter" data-filter=".dinner">Cena</a></li>
-            <li><a class="filter" data-filter=".sodas">Bebidas</a></li>
-          </ul>
-          <a class="btn btn-success" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg">Ver agregados</a>
-
-        </div>
-
-        <div id="menu-wrapper">
-         <?php $j = 0; for ($i=0; $i <count($desayunos) ; $i++) {?>
-          <div class="breakfast menu-restaurant">
-            <span class="clearfix">
-              <a class="menu-title" onclick="mostrar(<?php echo $desayunos[$i]["nombre"] ?>)" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $desayunos[$i]["nombre"] ?></a>
-              <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span id="<?php echo $desayunos[$i]["nombre"] ?>" class="menu-price" value = "<?php echo $desayunos[$i]["precio"] ?>">$<?php echo $desayunos[$i]["precio"] ?></span>
-              <span><button type="button" value="<?php echo $desayunos[$i]["nombre"].'/$'.$desayunos[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j;?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
-              </button></span>
-            </span>
-            <div class="opciones">
-
+        <span class="menu-subtitle"><?php echo $desayunos[$i]["descripcion"] ?></span>
+      </div>
+    <?php $j = $j+1; }  ?>
+    <?php for ($i=0; $i < count($comidas); $i++)  { ?>
+      <div class="lunch menu-restaurant">
+        <span class="clearfix">
+          <a class="menu-title" onclick="despliega(<?php echo $j;?>)" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $comidas[$i]["nombre"] ?></a>
+          <span style="left: 166px; right: 44px;" class="menu-line"></span>
+          <span class="menu-price">$<?php echo $comidas[$i]["precio"] ?></span>
+          <span><button type="button"value="<?php echo $comidas[$i]["nombre"].'/$'.$comidas[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+          </button></span>
+          <div class="" id="opciones">
             </div>
-            <span class="menu-subtitle"><?php echo $desayunos[$i]["descripcion"] ?></span>
-          </div>
-        <?php $j = $j+1; }  ?>
-        <?php for ($i=0; $i < count($comidas); $i++)  { ?>
-          <div class="lunch menu-restaurant">
-            <span class="clearfix">
-              <a class="menu-title" onclick="despliega(<?php echo $j;?>)" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $comidas[$i]["nombre"] ?></a>
-              <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$<?php echo $comidas[$i]["precio"] ?></span>
-              <span><button type="button"value="<?php echo $comidas[$i]["nombre"].'/$'.$comidas[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
-              </button></span>
-              <div class="" id="opciones">
-                </div>
 
-            </span>
-            <span class="menu-subtitle"><?php echo $comidas[$i]["descripcion"] ?></span>
-          </div>
-        <?php $j = $j+1;} ?>
-        <?php for ($i=0; $i <count($cenas) ; $i++) { ?>
-        <div class="dinner menu-restaurant">
-            <span class="clearfix">
-              <a class="menu-title" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $cenas[$i]["nombre"] ?></a>
-              <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$<?php echo $cenas[$i]["precio"] ?></span>
-              <span><button type="button" value="<?php echo $cenas[$i]["nombre"].'/$'.$cenas[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
-              </button></span></span>
-            <span class="menu-subtitle"><?php echo $cenas[$i]["descripcion"] ?></span>
+        </span>
+        <span class="menu-subtitle"><?php echo $comidas[$i]["descripcion"] ?></span>
+      </div>
+    <?php $j = $j+1;} ?>
+    <?php for ($i=0; $i <count($cenas) ; $i++) { ?>
+    <div class="dinner menu-restaurant">
+        <span class="clearfix">
+          <a class="menu-title" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $cenas[$i]["nombre"] ?></a>
+          <span style="left: 166px; right: 44px;" class="menu-line"></span>
+          <span class="menu-price">$<?php echo $cenas[$i]["precio"] ?></span>
+          <span><button type="button" value="<?php echo $cenas[$i]["nombre"].'/$'.$cenas[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+          </button></span></span>
+        <span class="menu-subtitle"><?php echo $cenas[$i]["descripcion"] ?></span>
 
-
-          </div>
-        <?php $j = $j+1;} ?>
-        </div>
-        <?php for ($i=0; $i <count($bebidas) ; $i++) { ?>
-        <div class="sodas menu-restaurant">
-            <span class="clearfix">
-              <a class="menu-title" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $bebidas[$i]["nombre"] ?></a>
-              <span style="left: 166px; right: 44px;" class="menu-line"></span>
-              <span class="menu-price">$<?php echo $bebidas[$i]["precio"] ?></span>
-              <span><button type="button" value="<?php echo $sodas[$i]["nombre"].'/$'.$sodas[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
-              </button></span></span>
-            </span>
-            <span class="menu-subtitle"><?php echo $bebidas[$i]["descripcion"] ?></span>
-          </div>
-        <?php $j = $j+1;} ?>
-        </div>
 
       </div>
+    <?php $j = $j+1;} ?>
+    </div>
+    <?php for ($i=0; $i <count($bebidas) ; $i++) { ?>
+    <div class="sodas menu-restaurant">
+        <span class="clearfix">
+          <a class="menu-title" href="#" data-toggle="modal" data-target="#myModal" data-meal-img="assets/img/restaurant/rib.jpg"><?php echo $bebidas[$i]["nombre"] ?></a>
+          <span style="left: 166px; right: 44px;" class="menu-line"></span>
+          <span class="menu-price">$<?php echo $bebidas[$i]["precio"] ?></span>
+          <span><button type="button" value="<?php echo $sodas[$i]["nombre"].'/$'.$sodas[$i]["precio"];?>" id="<?php echo $j;?>" name="button" class="btn btn-success" onclick="agregar(<?php echo $j?>)"><i class="fa fa-plus-square-o" aria-hidden="true"></i>
+          </button></span></span>
+        </span>
+        <span class="menu-subtitle"><?php echo $bebidas[$i]["descripcion"] ?></span>
+      </div>
+    <?php $j = $j+1;} ?>
+    </div>
+
+  </div>
     </div>
   </section>
   <div class='modal fade' id='myModal' role='dialog'>
@@ -486,6 +511,9 @@ $(document).ready(function(){
   });
 
  });
+ function borrar(){
+   document.getElementById('infoPlatillo').innerHTML = ""
+ }
  var html = " ";
  function agregar(valor){
    var nombre = document.getElementById(valor).value;
@@ -552,21 +580,21 @@ $(document).ready(function(){
     if((h>=7) && (h<=11)){
       //Hora del desayuno
       var tComida = 'D';
-      alert("Hora del desayuno");
     }else if((h>=11)&&(h<=18)){
       //Hora de la comida
       var tComida = 'C';
-      alert("Hora de la comida");
     }else if((h>=18)&&(h<=23)){
       //Hora de la cena
       var tComida = 'CE';
-      alert("Hora de la cena");
     }
   }
 
   window.onload=function(){
     startTime();
     //decideComidaHora();
+  }
+  function salir(){
+    window.location.replace("<?php echo base_url() ?>index.php/Welcome/logout");
   }
 
 

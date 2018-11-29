@@ -8,9 +8,9 @@
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Satisfy|Bree+Serif|Candal|PT+Sans">
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="<?php base_url(); ?>css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php base_url(); ?>css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php base_url(); ?>css/style.css">
   <!-- =======================================================
     Theme Name: Delicious
     Theme URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
@@ -160,7 +160,7 @@
             </div>
             <div class="col-md-6 col-sm-6 contact-form pad-form">
              <div class="form-group">
-                <input type="text" class="form-control label-floating is-empty" name="l_nac" id="l_nac" placeholder="Lugar de Nacimiento" required" />
+                <input type="text" class="form-control label-floating is-empty" name="l_nac" id="l_nac" placeholder="Lugar de Nacimiento" required />
                 <div></div>
               </div>
             </div>
@@ -394,11 +394,11 @@
     </div>
   </footer>
   <!-- / footer -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.easing.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/custom.js"></script>
-  <script src="contactform/contactform.js"></script>
+  <script src="expertosFinal/autoBar/js/jquery.min.js"></script>
+  <script src="/js/jquery.easing.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/custom.js"></script>
+  <script src="/contactform/contactform.js"></script>
 
 </body>
 
