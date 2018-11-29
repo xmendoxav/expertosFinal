@@ -27,5 +27,17 @@
   	$resultado = $this->db->query($query);
   	return $resultado->result_array();
   }
+	public function buscaIdComida($nombreComida){
+		$query = "SELECT id FROM menu WHERE nombre = '".$nombreComida."'";
+		$resultado = $this->db->query($query);
+		$resultado = $resultado ->row_array();
+		$resultado = $resultado["id"];
+		return $resultado;
+	}
+	public function ingresaCompra($idComida,$usuario,$calificacion){
+		$query = "INSERT INTO consumo (id_usuario, id_menu,fecha, hora,consumo_total,valoracion) VALUES ('".$usuario."', '".$idComida."', '2018-11-06', '06:06:11', '239', '".$calificacion."')";
+		$this->db->query($query);
+
+	}
 }
 ?>
