@@ -83,7 +83,8 @@ class Welcome extends CI_Controller {
 			//Obtenemos la hora, para saber que recomendar POR HORA
 			date_default_timezone_set("America/Inuvik");
 			$time = getdate();
-			$h = $time['hours'];
+			//$h = $time['hours'];
+			$h = 22;
 			//Hora de atencion de 07:00 a 23:00
 		    // 7 Se abre a las 7
 		    // 23 Se cierra a las 23;
@@ -117,7 +118,9 @@ class Welcome extends CI_Controller {
 			$datos["bebidas"] = $this->modelsP->buscaPlatillos("B");
 			date_default_timezone_set("America/Inuvik");
 			$time = getdate();
-			$h = $time['hours'];
+			//$h = $time['hours'];
+			$h = 22;
+			
 			//Hora de atencion de 07:00 a 23:00
 				// 7 Se abre a las 7
 				// 23 Se cierra a las 23;
@@ -137,7 +140,7 @@ class Welcome extends CI_Controller {
 					$datos["recomendacionHora"] = $datos['cenas'];
 				}
 			$this->load->view('menu', $datos);
-			$this->load->view('menu', $datos);
+			//$this->load->view('menu', $datos);
 
 		}
 
